@@ -4,7 +4,8 @@ import Login from "./componentes/login"
 function App(){
   return (
     <>
-    <Header />
+    <Header titulo="Lanchonete Dogão"
+       subtitulo="O melhor da região" />
     <Login />
     </>
   )
