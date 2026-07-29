@@ -1,0 +1,46 @@
+.controle {
+    display: flex;
+    justify-content: center; /* Centraliza horizontalmente */
+    align-items: center;
+    gap: 20px; /* Espaço entre os botões */
+    margin-top: 30px;
+}
+h2{
+    color:#000000
+}
+
+.btn{
+    width: 140px;      /* Mais largo */
+    height: 55px;
+    border: none;
+    border-radius: 10px;
+    font-size: 28px;
+    font-weight: bold;
+    color: #fff;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+.aumentar {
+    background-color: #000000;
+}
+
+.aumentar:hover {
+    background-color: #3f3f3f;
+    
+    transform: scale(1.05);
+}
+
+.diminuir {
+    background-color: #000000;
+}
+
+.diminuir:hover {
+    background-color:#3f3f3f;
+    transform: scale(1.05);
+}
+
+.btn:active {
+    transform: scale(0.95);
+}

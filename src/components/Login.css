@@ -1,0 +1,69 @@
+ 
+  /* Caixa de login */
+  .login-box {
+    background: #fff;
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+    width: 300px;
+    text-align: center;
+  
+    /* ALTERADO: garante centralização mesmo em telas pequenas */
+    margin: auto;
+  }
+  
+  /* Título */
+  .login-box h3 {
+    margin-bottom: 20px;
+    color: #000000;
+  }
+  /*mesagem de esqueceu senha*/
+  .login-box h5 {
+    color:#666
+  }
+  
+  /* Inputs */
+  .login-box input {
+    width: 100%;
+    padding: 12px;
+    margin: 10px 0;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    outline: none;
+    transition: 0.3s;
+  }
+  
+  .login-box input:focus {
+    border-color: #000000;
+    box-shadow: 0 0 5px rgba(39, 39, 39, 0.5);
+  }
+  
+  /* Botão */
+  .login-box button {
+    width: 100%;
+    padding: 12px;
+    background: #000000;
+    border: none;
+    border-radius: 8px;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    margin-top: 10px;
+    transition: 0.3s;
+  }
+  
+  .login-box button:hover {
+    background: #5a5a5a;
+  }
+  
+  /* Texto inferior */
+  .login-box p {
+    margin-top: 15px;
+    font-size: 12px;
+    color: #666;
+    cursor: pointer;
+  }
+  
+  .login-box p:hover {
+    text-decoration: underline;
+  }
