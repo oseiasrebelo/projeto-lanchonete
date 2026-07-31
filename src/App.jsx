@@ -6,6 +6,7 @@ import Footer from "./components/Footer";
 import Contador from "./components/Contador";
 
 function App(){
+
   return(
     <>
       <Header titulo="Lanchonete do Senai"
