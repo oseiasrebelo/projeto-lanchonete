@@ -38,6 +38,13 @@ function CardProd() {
       quantidade: 0,
       imagem: "/imagem/hot-dog.jpg",
     },
+    {
+      nome: "Guaraná",
+      descricao: "Refrigerante",
+      preco: 8,
+      quantidade: 0,
+      imagem: "/imagem/guarana.jpg",
+    },
   ]);
 
   function adicionar(index) {
