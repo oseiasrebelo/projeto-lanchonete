@@ -44,7 +44,7 @@ button{
   padding:10px 20px;
   border-radius:8px;
   cursor:pointer;
-  color:white;
+  color:rgb(82, 78, 78);
   font-weight:bold;
   transition:.2s;
 }

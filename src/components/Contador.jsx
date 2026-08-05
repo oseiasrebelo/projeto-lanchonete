@@ -6,7 +6,7 @@ function Contador() {
 
   return(
     <div className="contador">
-      <h2>X-Burguer</h2>
+      <h2>Lanche</h2>
       <p>Quantidade: {contador}</p>
       <button class="btn"onClick={() => setContador(contador + 1)}>+</button>
       <button class="btn"onClick={() => {if (contador > 0) setContador(contador - 1)}}>-</button>
