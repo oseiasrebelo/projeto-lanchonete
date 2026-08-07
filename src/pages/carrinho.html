@@ -4,180 +4,158 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Carrinho de Compras</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 20px;
-            background-color: #fcf8f2; /* Tom quente para lanchonete */
-        }
-        h1 {
-            color: #d9534f; /* Vermelho lanchonete */
-            border-bottom: 2px solid #f0ad4e;
-            padding-bottom: 10px;
-        }
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-bottom: 20px;
-            background-color: #fff;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
-        }
-        th, td {
-            border: 1px solid #ddd;
-            padding: 12px;
-            text-align: left;
-        }
-        th {
-            background-color: #f0ad4e; /* Amarelo/Laranja do topo */
-            color: white;
-        }
-        .img-produto {
-            width: 60px;
-            height: 60px;
-            object-fit: cover;
-            border-radius: 8px;
-        }
-        .resumo-carrinho {
-            background-color: #fff;
-            padding: 15px;
-            border: 1px solid #ddd;
-            margin-bottom: 20px;
-            max-width: 300px;
-            border-radius: 4px;
-        }
-        .resumo-item {
-            margin-bottom: 10px;
-            font-size: 16px;
-        }
-        .botoes-container {
-            display: flex;
-            gap: 10px;
-        }
-        button, .btn-voltar {
-            padding: 12px 24px;
-            font-size: 16px;
-            font-weight: bold;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-            text-decoration: none;
-            display: inline-block;
-            text-align: center;
-        }
-        .btn-limpar {
-            background-color: #bb2d3b;
-            color: white;
-        }
-        .btn-finalizar {
-            background-color: #198754;
-            color: white;
-        }
-        .btn-voltar {
-            background-color: #6c757d;
-            color: white;
-        }
-        button:hover, .btn-voltar:hover {
-            opacity: 0.9;
-        }
-    </style>
+
+    <link rel="stylesheet" href="Carrinho.css">
 </head>
+
 <body>
+
+<div class="container">
 
     <h1>Carrinho de Compras</h1>
 
-    <!-- Tabela de Produtos -->
     <table>
         <thead>
             <tr>
-                <th>Foto do Produto</th>
+                <th>Foto</th>
                 <th>Produto</th>
                 <th>Categoria</th>
-                <th>Qtd</th>
+                <th>Quantidade</th>
                 <th>Preço</th>
             </tr>
         </thead>
+
         <tbody id="corpo-tabela">
-            <!-- O JavaScript vai buscar os dados e injetar as linhas aqui -->
+
         </tbody>
+
     </table>
 
-    <!-- Mais abaixo: Resumo de Valores -->
     <div class="resumo-carrinho">
+
         <div class="resumo-item">
-            <strong>Total de itens:</strong> <span id="total-itens">0</span> unidades
+            <strong>Total de itens:</strong>
+            <span id="total-itens">0</span>
         </div>
+
         <div class="resumo-item">
-            <strong>Valor total:</strong> R$ <span id="valor-total">0,00</span>
+            <strong>Valor Total:</strong>
+            R$
+            <span id="valor-total">0,00</span>
         </div>
+
     </div>
 
-    <!-- Mais abaixo: Botões de Ação -->
     <div class="botoes-container">
-        <a href="cardapio.html" class="btn-voltar">⬅ Voltar ao Cardápio</a>
-        <button class="btn-limpar" onclick="limparCarrinho()" type="button">Limpar Carrinho</button>
-        <button class="btn-finalizar" onclick="finalizarPedido()" type="button">Finalizar Carrinho</button>
+
+        <a href="cardapio.html" class="btn-voltar">
+            ⬅ Voltar ao Cardápio
+        </a>
+
+        <button class="btn-limpar" onclick="limparCarrinho()">
+            Limpar Carrinho
+        </button>
+
+        <button class="btn-finalizar" onclick="finalizarPedido()">
+            Finalizar Pedido
+        </button>
+
     </div>
 
-    <script>
-        // Função principal que BUSCA os dados guardados pelo cardápio
-        function carregarDadosDoCarrinho() {
-            // Puxa a lista de produtos gravada na memória do navegador pelo outro arquivo
-            const carrinho = JSON.parse(localStorage.getItem('carrinho')) || [];
-            const corpoTabela = document.getElementById('corpo-tabela');
-            
-            let totalItens = 0;
-            let valorTotal = 0;
-            
-            // Limpa a tabela para não duplicar dados
-            corpoTabela.innerHTML = "";
+</div>
 
-            // Se não tiver nada no carrinho vindo da outra página
-            if (carrinho.length === 0) {
-                corpoTabela.innerHTML = "<tr><td colspan='5' style='text-align:center; padding: 20px;'>Seu carrinho está vazio! Vá até o cardápio escolher seus lanches.</td></tr>";
-            } else {
-                // Se tiver dados, percorre cada produto e monta a linha da tabela
-                carrinho.forEach(item => {
-                    const subtotal = item.preco * item.qtd;
-                    totalItens += item.qtd;
-                    valorTotal += subtotal;
+<script>
 
-                    const linha = `
-                        <tr>
-                            <td><img src="${item.foto}" class="img-produto" alt="${item.nome}"></td>
-                            <td>${item.nome}</td>
-                            <td>${item.categoria}</td>
-                            <td>${item.qtd}</td>
-                            <td>R$ ${item.preco.toFixed(2).replace('.', ',')}</td>
-                        </tr>
-                    `;
-                    corpoTabela.innerHTML += linha;
-                });
-            }
+function carregarDadosDoCarrinho(){
 
-            // Atualiza as informações de resumo mais abaixo na página
-            document.getElementById('total-itens').innerText = totalItens;
-            document.getElementById('valor-total').innerText = valorTotal.toFixed(2).replace('.', ',');
-        }
+    const carrinho = JSON.parse(localStorage.getItem("carrinho")) || [];
 
-        // Ação do botão Limpar
-        function limparCarrinho() {
-            localStorage.removeItem('carrinho'); // Apaga os dados salvos
-            carregarDadosDoCarrinho(); // Atualiza a tela na hora
-        }
+    const corpoTabela = document.getElementById("corpo-tabela");
 
-        // Ação do botão Finalizar
-        function finalizarPedido() {
-            const carrinho = JSON.parse(localStorage.getItem('carrinho')) || [];
-            if (carrinho.length === 0) {
-                alert("Seu carrinho está vazio! Escolha um item antes de finalizar.");
-                return;
-            }
-            alert("Pedido enviado com sucesso para a cozinha da lanchonete!");
-            limparCarrinho();
-        }
+    corpoTabela.innerHTML="";
 
-        // Executa a busca de dados assim que a página termina de carregar
-        window.onload = carregarDadosDoCarrinho;
-    </script>
+    let totalItens=0;
+    let valorTotal=0;
+
+    if(carrinho.length==0){
+
+        corpoTabela.innerHTML=`
+        <tr>
+            <td colspan="5" class="vazio">
+                Seu carrinho está vazio.
+            </td>
+        </tr>
+        `;
+
+    }else{
+
+        carrinho.forEach(item=>{
+
+            totalItens+=item.qtd;
+
+            valorTotal+=item.preco*item.qtd;
+
+            corpoTabela.innerHTML+=`
+
+            <tr>
+
+                <td>
+                    <img src="${item.foto}" class="img-produto">
+                </td>
+
+                <td>${item.nome}</td>
+
+                <td>${item.categoria}</td>
+
+                <td>${item.qtd}</td>
+
+                <td>
+                    R$ ${item.preco.toFixed(2).replace(".",",")}
+                </td>
+
+            </tr>
+
+            `;
+
+        });
+
+    }
+
+    document.getElementById("total-itens").innerText=totalItens;
+
+    document.getElementById("valor-total").innerText=valorTotal.toFixed(2).replace(".",",");
+
+}
+
+function limparCarrinho(){
+
+    localStorage.removeItem("carrinho");
+
+    carregarDadosDoCarrinho();
+
+}
+
+function finalizarPedido(){
+
+    const carrinho=JSON.parse(localStorage.getItem("carrinho")) || [];
+
+    if(carrinho.length==0){
+
+        alert("Seu carrinho está vazio!");
+
+        return;
+
+    }
+
+    alert("Pedido enviado com sucesso!");
+
+    limparCarrinho();
+
+}
+
+window.onload=carregarDadosDoCarrinho;
+
+</script>
+
 </body>
 </html>

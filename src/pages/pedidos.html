@@ -1,373 +1,178 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Painel da Cozinha - Pedidos</title>
-    <style>
-        body {
-            font-family: 'Arial', sans-serif;
-            background-color: #121212;
-            color: #ffffff;
-            margin: 0;
-            padding: 20px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
 
-        h1 {
-            color: #f0ad4e;
-            text-align: center;
-            font-size: 24px;
-            text-transform: uppercase;
-            margin-bottom: 25px;
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-        /* Card do Pedido (Sempre Visível) */
-        .pedido-card {
-            background-color: #1e1e1e;
-            border: 3px solid #333;
-            border-radius: 12px;
-            width: 100%;
-            max-width: 450px;
-            padding: 25px;
-            box-shadow: 0 8px 16px rgba(0,0,0,0.5);
-            box-sizing: border-box;
-        }
+<title>Painel da Cozinha</title>
 
-        .pedido-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            border-bottom: 2px dashed #444;
-            padding-bottom: 15px;
-            margin-bottom: 15px;
-        }
+<link rel="stylesheet" href="Pedidos.css">
 
-        .pedido-numero {
-            font-size: 28px;
-            font-weight: bold;
-            color: #ffcc00;
-            margin: 0;
-        }
-
-        .pedido-meta p {
-            margin: 5px 0;
-            font-size: 16px;
-            color: #bbbbbb;
-        }
-
-        .pedido-meta strong {
-            color: #fff;
-        }
-
-        .itens-lista {
-            list-style: none;
-            padding: 0;
-            margin: 20px 0;
-            min-height: 60px; /* Garante espaço visual mesmo sem itens */
-        }
-
-        .itens-lista li {
-            font-size: 22px;
-            font-weight: bold;
-            padding: 10px 0;
-            border-bottom: 1px solid #2a2a2a;
-        }
-
-        .sem-itens-aviso {
-            color: #666;
-            font-style: italic;
-            font-size: 16px;
-            text-align: center;
-            padding-top: 15px;
-        }
-
-        .pedido-footer {
-            font-size: 11px;
-            color: #777777;
-            text-align: center;
-            line-height: 1.4;
-            margin: 20px 0;
-            padding: 10px;
-            background-color: #161616;
-            border-radius: 6px;
-        }
-
-        .status-container {
-            text-align: center;
-            margin-top: 20px;
-            padding: 15px;
-            background-color: #262626;
-            border-radius: 8px;
-        }
-
-        .status-titulo {
-            font-size: 14px;
-            text-transform: uppercase;
-            color: #aaaaaa;
-            margin-bottom: 5px;
-        }
-
-        .status-badge {
-            display: inline-block;
-            font-size: 24px;
-            font-weight: bold;
-            padding: 8px 20px;
-            border-radius: 6px;
-            text-transform: uppercase;
-        }
-
-        /* Cores dos Status */
-        .status-aguardando { background-color: #333; color: #888; }
-        .status-recebido { background-color: #007bff; color: white; }
-        .status-preparando { background-color: #fd7e14; color: white; }
-        .status-pronto { background-color: #28a745; color: white; animation: piscar 1.5s infinite; }
-        .status-entregue { background-color: #6c757d; color: #ddd; }
-
-        @keyframes piscar {
-            0% { opacity: 1; }
-            50% { opacity: 0.5; }
-            100% { opacity: 1; }
-        }
-
-        .controle-paineis {
-            margin-top: 30px;
-            text-align: center;
-            max-width: 450px;
-            width: 100%;
-        }
-
-        .botoes-status {
-            display: flex;
-            gap: 8px;
-            justify-content: center;
-            flex-wrap: wrap;
-        }
-
-        .btn-status {
-            padding: 10px 14px;
-            font-size: 14px;
-            font-weight: bold;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-            color: white;
-        }
-
-        .btn-rec { background-color: #007bff; }
-        .btn-prep { background-color: #fd7e14; }
-        .btn-pronto { background-color: #28a745; }
-        .btn-ent { background-color: #6c757d; }
-
-        .fluxograma {
-            margin-top: 30px;
-            text-align: center;
-            color: #555;
-            font-family: monospace;
-            font-size: 14px;
-        }
-        .fluxo-item-ativo {
-            color: #ffcc00;
-            font-weight: bold;
-        }
-    </style>
 </head>
+
+
 <body>
 
-    <h1>Painel de Controle da Cozinha</h1>
 
-    <!-- Card do Pedido -->
-    <div class="pedido-card">
+<h1>Painel de Controle da Cozinha</h1>
 
-        <div class="pedido-header">
-            <h2 id="view-pedido-numero" class="pedido-numero">
-                PEDIDO #---
-            </h2>
 
-            <div class="pedido-meta">
-                <p><strong>Mesa:</strong> <span id="view-mesa">--</span></p>
-                <p><strong>Horário:</strong> <span id="view-horario">--:--</span></p>
-            </div>
-        </div>
+<div class="pedido-card">
 
-        <!-- Lista de Itens -->
-        <ul id="view-itens" class="itens-lista">
-            <li id="aviso-vazio" class="sem-itens-aviso">
-                Nenhum item em produção...
-            </li>
-        </ul>
 
-        <!-- Rodapé -->
-        <div class="pedido-footer">
-            senaipr.org.br<br>
-            Rua Senador Accioly Filho, 298 | Cidade Industrial de Curitiba<br>
-            81310-000 | Curitiba - PR | (41) 3271-7100
-        </div>
+<div class="pedido-header">
 
-        <!-- Status -->
-        <div class="status-container">
-            <div class="status-titulo">Status</div>
+<h2 id="view-pedido-numero" class="pedido-numero">
+PEDIDO #---
+</h2>
 
-            <span
-                id="status-atual"
-                class="status-badge status-aguardando">
-                [ Aguardando ]
-            </span>
-        </div>
 
-    </div>
+<div class="pedido-meta">
 
-    <!-- Controles -->
-    <div class="controle-paineis">
+<p>
+<strong>Mesa:</strong>
+<span id="view-mesa">--</span>
+</p>
 
-        <h3 style="color:#888;margin-bottom:10px;">
-            Alterar Status do Pedido
-        </h3>
 
-        <div class="botoes-status">
+<p>
+<strong>Horário:</strong>
+<span id="view-horario">--:--</span>
+</p>
 
-            <button
-                class="btn-status btn-rec"
-                onclick="mudarStatus('Recebido','status-recebido')">
-                Recebido
-            </button>
+</div>
 
-            <button
-                class="btn-status btn-prep"
-                onclick="mudarStatus('Preparando','status-preparando')">
-                Preparando
-            </button>
+</div>
 
-            <button
-                class="btn-status btn-pronto"
-                onclick="mudarStatus('Pronto','status-pronto')">
-                Pronto
-            </button>
 
-            <button
-                class="btn-status btn-ent"
-                onclick="mudarStatus('Entregue','status-entregue')">
-                Entregue
-            </button>
 
-        </div>
+<ul id="view-itens" class="itens-lista">
 
-    </div>
+<li class="sem-itens-aviso">
+Nenhum item em produção...
+</li>
 
-    <!-- Fluxograma -->
-    <div class="fluxograma">
+</ul>
 
-        <p>STATUS</p>
 
-        <span id="fluxo-Recebido">Recebido</span>
 
-        <br>│<br>▼<br>
 
-        <span id="fluxo-Preparando">Preparando</span>
+<div class="pedido-footer">
 
-        <br>│<br>▼<br>
+senaipr.org.br<br>
 
-        <span id="fluxo-Pronto">Pronto</span>
+Rua Senador Accioly Filho, 298 | Cidade Industrial de Curitiba<br>
 
-        <br>│<br>▼<br>
+81310-000 | Curitiba - PR | (41) 3271-7100
 
-        <span id="fluxo-Entregue">Entregue</span>
+</div>
 
-    </div>
 
-    <script>
 
-        function preencherDadosDoPedido() {
 
-            const pedidos =
-                JSON.parse(localStorage.getItem("pedidos")) || [];
+<div class="status-container">
 
-            if (pedidos.length === 0) {
+<div class="status-titulo">
+Status
+</div>
 
-                document.getElementById("view-pedido-numero").textContent = "PEDIDO #---";
-                document.getElementById("view-mesa").textContent = "--";
-                document.getElementById("view-horario").textContent = "--:--";
 
-                document.getElementById("view-itens").innerHTML =
-                    '<li class="sem-itens-aviso">Nenhum item em produção...</li>';
+<span id="status-atual"
+class="status-badge status-aguardando">
 
-                mudarStatus("Aguardando","status-aguardando");
+[ Aguardando ]
 
-                return;
-            }
+</span>
 
-            const ultimoPedido = pedidos[pedidos.length - 1];
 
-            document.getElementById("view-pedido-numero").textContent =
-                "PEDIDO #" + String(ultimoPedido.id).padStart(3,"0");
+</div>
 
-            document.getElementById("view-mesa").textContent =
-                ultimoPedido.mesa || "--";
 
-            document.getElementById("view-horario").textContent =
-                ultimoPedido.hora || "--:--";
+</div>
 
-            const lista = document.getElementById("view-itens");
 
-            lista.innerHTML = "";
 
-            ultimoPedido.itens.forEach(item => {
 
-                const li = document.createElement("li");
 
-                li.textContent = `${item.qtd}x ${item.nome}`;
+<div class="controle-paineis">
 
-                lista.appendChild(li);
 
-            });
+<h3>
+Alterar Status do Pedido
+</h3>
 
-            mudarStatus("Recebido","status-recebido");
 
-        }
+<div class="botoes-status">
 
-        function mudarStatus(status, classe) {
 
-            const badge = document.getElementById("status-atual");
+<button class="btn-status btn-rec">
+Recebido
+</button>
 
-            badge.textContent = `[ ${status} ]`;
 
-            badge.className = `status-badge ${classe}`;
+<button class="btn-status btn-prep">
+Preparando
+</button>
 
-            const lista = [
-                "Recebido",
-                "Preparando",
-                "Pronto",
-                "Entregue"
-            ];
 
-            lista.forEach(item => {
+<button class="btn-status btn-pronto">
+Pronto
+</button>
 
-                const el = document.getElementById("fluxo-" + item);
 
-                if (!el) return;
+<button class="btn-status btn-ent">
+Entregue
+</button>
 
-                el.classList.remove("fluxo-item-ativo");
 
-                if (item === status)
-                    el.classList.add("fluxo-item-ativo");
+</div>
 
-            });
 
-        }
+</div>
 
-        preencherDadosDoPedido();
 
-        window.addEventListener("storage", function(e){
 
-            if(e.key === "pedidos"){
-                preencherDadosDoPedido();
-            }
 
-        });
 
-    </script>
+<div class="fluxograma">
+
+<p>STATUS</p>
+
+<span id="fluxo-Recebido">
+Recebido
+</span>
+
+<br>│<br>▼<br>
+
+
+<span id="fluxo-Preparando">
+Preparando
+</span>
+
+
+<br>│<br>▼<br>
+
+
+<span id="fluxo-Pronto">
+Pronto
+</span>
+
+
+<br>│<br>▼<br>
+
+
+<span id="fluxo-Entregue">
+Entregue
+</span>
+
+
+</div>
+
+
 
 </body>
+
+</html>
 

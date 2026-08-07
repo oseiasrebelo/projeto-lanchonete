@@ -1,0 +1,248 @@
+body {
+    background-color: #111;
+    color: white;
+    font-family: Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0;
+    padding: 20px;
+}
+
+h1 {
+    color: #f0ad4e;
+    text-align: center;
+    font-size: 24px;
+    text-transform: uppercase;
+    margin-bottom: 25px;
+}
+
+
+/* CARD DO PEDIDO */
+.pedido-card {
+    background-color: #1e1e1e;
+    border: 3px solid #333;
+    border-radius: 12px;
+    width: 100%;
+    max-width: 450px;
+    padding: 25px;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.5);
+    box-sizing: border-box;
+}
+
+
+.pedido-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 2px dashed #444;
+    padding-bottom: 15px;
+    margin-bottom: 15px;
+}
+
+
+.pedido-numero {
+    font-size: 28px;
+    font-weight: bold;
+    color: #ffcc00;
+    margin: 0;
+}
+
+
+.pedido-meta p {
+    margin: 5px 0;
+    font-size: 16px;
+    color: #bbb;
+}
+
+
+.pedido-meta strong {
+    color: white;
+}
+
+
+/* ITENS */
+
+.itens-lista {
+    list-style: none;
+    padding: 0;
+    margin: 20px 0;
+    min-height: 60px;
+}
+
+
+.itens-lista li {
+    font-size: 22px;
+    font-weight: bold;
+    padding: 10px 0;
+    border-bottom: 1px solid #2a2a2a;
+}
+
+
+.sem-itens-aviso {
+    color: #666;
+    font-style: italic;
+    text-align: center;
+    font-size: 16px;
+}
+
+
+/* RODAPÉ */
+
+.pedido-footer {
+
+    font-size: 11px;
+    color: #777;
+    text-align: center;
+    line-height: 1.4;
+    margin: 20px 0;
+    padding: 10px;
+    background-color: #161616;
+    border-radius: 6px;
+
+}
+
+
+/* STATUS */
+
+.status-container {
+
+    text-align: center;
+    margin-top: 20px;
+    padding: 15px;
+    background-color: #262626;
+    border-radius: 8px;
+
+}
+
+
+.status-titulo {
+
+    font-size: 14px;
+    text-transform: uppercase;
+    color: #aaa;
+    margin-bottom: 5px;
+
+}
+
+
+.status-badge {
+
+    display: inline-block;
+    font-size: 24px;
+    font-weight: bold;
+    padding: 8px 20px;
+    border-radius: 6px;
+    text-transform: uppercase;
+
+}
+
+
+/* CORES */
+
+.status-aguardando {
+    background:#333;
+    color:#888;
+}
+
+.status-recebido {
+    background:#007bff;
+    color:white;
+}
+
+.status-preparando {
+    background:#fd7e14;
+    color:white;
+}
+
+.status-pronto {
+    background:#28a745;
+    color:white;
+    animation: piscar 1.5s infinite;
+}
+
+.status-entregue {
+    background:#6c757d;
+    color:#ddd;
+}
+
+
+@keyframes piscar {
+
+    50% {
+        opacity:.5;
+    }
+
+}
+
+
+/* BOTÕES */
+
+.controle-paineis {
+
+    margin-top:30px;
+    text-align:center;
+    width:100%;
+    max-width:450px;
+
+}
+
+
+.botoes-status {
+
+    display:flex;
+    gap:8px;
+    justify-content:center;
+    flex-wrap:wrap;
+
+}
+
+
+.btn-status {
+
+    padding:10px 14px;
+    font-size:14px;
+    font-weight:bold;
+    border:none;
+    border-radius:4px;
+    cursor:pointer;
+    color:white;
+
+}
+
+
+.btn-rec {
+    background:#007bff;
+}
+
+.btn-prep {
+    background:#fd7e14;
+}
+
+.btn-pronto {
+    background:#28a745;
+}
+
+.btn-ent {
+    background:#6c757d;
+}
+
+
+/* FLUXOGRAMA */
+
+.fluxograma {
+
+    margin-top:30px;
+    text-align:center;
+    color:#555;
+    font-family:monospace;
+
+}
+
+
+.fluxo-item-ativo {
+
+    color:#ffcc00;
+    font-weight:bold;
+
+}

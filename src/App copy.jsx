@@ -5,19 +5,19 @@ import Funcionarios from "./components/Funcionario";
 import Footer from "./components/Footer";
 import Contador from "./components/Contador";
 
-function Home (){
+function App(){
 
-return {
+  return(
     <>
-     <Header titulo="Lanchonete do Senai"
+      <Header titulo="Lanchonete do Senai"
               subtitulo="O melhor da regiao"/>
       <Login/>
       <CardProd/>
       <Contador/>
       <Funcionarios/>
       <Footer/>
-    </>
-}    
+      
+      </>
+  )
 }
-
-export default Home
+export default App

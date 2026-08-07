@@ -1,22 +1,20 @@
-import Header from "./components/Header";
+import {Routes , Route } from "react-router-dom";
+
+import Home from "./pages/Home";
+import Carrinho from "./pages/Carrinho";
+import Pedidos from "./pages/Pedidos";
 import Login from "./pages/Login";
-import CardProd from "./components/CardProd";
-import Funcionarios from "./components/Funcionario";
-import Footer from "./components/Footer";
-import Contador from "./components/Contador";
 
 function App(){
 
   return(
     <>
-      <Header titulo="Lanchonete do Senai"
-              subtitulo="O melhor da regiao"/>
-      <Login/>
-      <CardProd/>
-      <Contador/>
-      <Funcionarios/>
-      <Footer/>
-      
+    <Routes>
+      <Route path="/" element={<Login/>}/>
+      <Route path="/home" element={<Home/>}/>
+      <Route path="/carrinho" element={<Carrinho/>}/>
+      <Route path="/pedido" element={<Pedidos/>}/>
+    </Routes>
       </>
   )
 }
