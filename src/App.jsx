@@ -1,5 +1,5 @@
 import Header from "./components/Header";
-import Login from "./components/Login";
+import Login from "./pages/Login";
 import CardProd from "./components/CardProd";
 import Funcionarios from "./components/Funcionario";
 import Footer from "./components/Footer";

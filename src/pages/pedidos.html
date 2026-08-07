@@ -178,114 +178,196 @@
 
     <h1>Painel de Controle da Cozinha</h1>
 
-    <!-- Estrutura do Card - Sempre visível na tela, mas sem dados iniciais -->
+    <!-- Card do Pedido -->
     <div class="pedido-card">
+
         <div class="pedido-header">
-            <!-- Espaço do número do pedido inicia vazio -->
-            <h2 id="view-pedido-numero" class="pedido-numero">PEDIDO #---</h2>
+            <h2 id="view-pedido-numero" class="pedido-numero">
+                PEDIDO #---
+            </h2>
+
             <div class="pedido-meta">
-                <!-- Espaço da mesa e horário iniciam vazios -->
                 <p><strong>Mesa:</strong> <span id="view-mesa">--</span></p>
                 <p><strong>Horário:</strong> <span id="view-horario">--:--</span></p>
             </div>
         </div>
 
-        <!-- Lista de Comida Dinâmica - Inicia limpa -->
+        <!-- Lista de Itens -->
         <ul id="view-itens" class="itens-lista">
-            <div id="aviso-vazio" class="sem-itens-aviso">Nenhum item em produção...</div>
+            <li id="aviso-vazio" class="sem-itens-aviso">
+                Nenhum item em produção...
+            </li>
         </ul>
 
-        <!-- Endereço Institucional Fixo -->
+        <!-- Rodapé -->
         <div class="pedido-footer">
             senaipr.org.br<br>
             Rua Senador Accioly Filho, 298 | Cidade Industrial de Curitiba<br>
-            81310-000 | Curitiba-PR | (41) 3271-7100
+            81310-000 | Curitiba - PR | (41) 3271-7100
         </div>
 
-        <!-- Status Visual Inicial -->
+        <!-- Status -->
         <div class="status-container">
             <div class="status-titulo">Status</div>
-            <span id="status-atual" class="status-badge status-aguardando">[ Aguardando ]</span>
+
+            <span
+                id="status-atual"
+                class="status-badge status-aguardando">
+                [ Aguardando ]
+            </span>
         </div>
+
     </div>
 
-    <!-- Painel de Controle de Status (Sempre Visível) -->
+    <!-- Controles -->
     <div class="controle-paineis">
-        <h3 style="color: #888; font-size: 16px; margin-bottom: 10px;">Alterar Status do Pedido:</h3>
+
+        <h3 style="color:#888;margin-bottom:10px;">
+            Alterar Status do Pedido
+        </h3>
+
         <div class="botoes-status">
-            <button class="btn-status btn-rec" onclick="mudarStatus('Recebido', 'status-recebido')">Recebido</button>
-            <button class="btn-status btn-prep" onclick="mudarStatus('Preparando', 'status-preparando')">Preparando</button>
-            <button class="btn-status btn-pronto" onclick="mudarStatus('Pronto', 'status-pronto')">Pronto</button>
-            <button class="btn-status btn-ent" onclick="mudarStatus('Entregue', 'status-entregue')">Entregue</button>
+
+            <button
+                class="btn-status btn-rec"
+                onclick="mudarStatus('Recebido','status-recebido')">
+                Recebido
+            </button>
+
+            <button
+                class="btn-status btn-prep"
+                onclick="mudarStatus('Preparando','status-preparando')">
+                Preparando
+            </button>
+
+            <button
+                class="btn-status btn-pronto"
+                onclick="mudarStatus('Pronto','status-pronto')">
+                Pronto
+            </button>
+
+            <button
+                class="btn-status btn-ent"
+                onclick="mudarStatus('Entregue','status-entregue')">
+                Entregue
+            </button>
+
         </div>
+
     </div>
 
-    <!-- Fluxograma Visual Inferior (Sempre Visível) -->
+    <!-- Fluxograma -->
     <div class="fluxograma">
-        <p>COM OS STATUS</p>
-        <span id="fluxo-Recebido">Recebido</span><br>│<br>▼<br>
-        <span id="fluxo-Preparando">Preparando</span><br>│<br>▼<br>
-        <span id="fluxo-Pronto">Pronto</span><br>│<br>▼<br>
+
+        <p>STATUS</p>
+
+        <span id="fluxo-Recebido">Recebido</span>
+
+        <br>│<br>▼<br>
+
+        <span id="fluxo-Preparando">Preparando</span>
+
+        <br>│<br>▼<br>
+
+        <span id="fluxo-Pronto">Pronto</span>
+
+        <br>│<br>▼<br>
+
         <span id="fluxo-Entregue">Entregue</span>
+
     </div>
 
     <script>
-        // Função que busca dados reais do navegador para preencher o layout
+
         function preencherDadosDoPedido() {
-            const pedidos = JSON.parse(localStorage.getItem('pedidos')) || [];
-            
-            // Se realmente não houver dados salvos, mantém os traços e limpa as listas
+
+            const pedidos =
+                JSON.parse(localStorage.getItem("pedidos")) || [];
+
             if (pedidos.length === 0) {
-                document.getElementById('view-pedido-numero').innerText = "PEDIDO #---";
-                document.getElementById('view-mesa').innerText = "--";
-                document.getElementById('view-horario').innerText = "--:--";
-                document.getElementById('view-itens').innerHTML = '<div id="aviso-vazio" class="sem-itens-aviso">Nenhum item em produção...</div>';
-                mudarStatus('Aguardando', 'status-aguardando');
+
+                document.getElementById("view-pedido-numero").textContent = "PEDIDO #---";
+                document.getElementById("view-mesa").textContent = "--";
+                document.getElementById("view-horario").textContent = "--:--";
+
+                document.getElementById("view-itens").innerHTML =
+                    '<li class="sem-itens-aviso">Nenhum item em produção...</li>';
+
+                mudarStatus("Aguardando","status-aguardando");
+
                 return;
             }
 
-            // Pega o pedido enviado mais recente
             const ultimoPedido = pedidos[pedidos.length - 1];
 
-            // Injeta as informações diretamente nas tags existentes que estavam sem dados
-            document.getElementById('view-pedido-numero').innerText = `PEDIDO #00${ultimoPedido.id}`;
-            document.getElementById('view-mesa').innerText = ultimoPedido.mesa || "03"; 
-            document.getElementById('view-horario').innerText = ultimoPedido.hora;
+            document.getElementById("view-pedido-numero").textContent =
+                "PEDIDO #" + String(ultimoPedido.id).padStart(3,"0");
 
-            // Preenche os itens na lista de comida
-            const elItens = document.getElementById('view-itens');
-            elItens.innerHTML = ""; // Apaga o aviso de vazio
+            document.getElementById("view-mesa").textContent =
+                ultimoPedido.mesa || "--";
+
+            document.getElementById("view-horario").textContent =
+                ultimoPedido.hora || "--:--";
+
+            const lista = document.getElementById("view-itens");
+
+            lista.innerHTML = "";
+
             ultimoPedido.itens.forEach(item => {
-                elItens.innerHTML += `<li>${item.qtd}x ${item.nome}</li>`;
+
+                const li = document.createElement("li");
+
+                li.textContent = `${item.qtd}x ${item.nome}`;
+
+                lista.appendChild(li);
+
             });
 
-            // Atualiza o fluxo para o estado inicial de processamento
-            mudarStatus('Recebido', 'status-recebido');
+            mudarStatus("Recebido","status-recebido");
+
         }
 
-        // Função para interagir com os botões de status
-        function mudarStatus(nomeStatus, classeCss) {
-            const elStatus = document.getElementById('status-atual');
-            elStatus.innerText = `[ ${nomeStatus} ]`;
-            elStatus.className = `status-badge ${classeCss}`;
+        function mudarStatus(status, classe) {
 
-            const listaStatus = ['Recebido', 'Preparando', 'Pronto', 'Entregue'];
-            listaStatus.forEach(status => {
-                const elFluxo = document.getElementById(`fluxo-${status}`);
-                if (elFluxo) {
-                    if (status === nomeStatus) {
-                        elFluxo.className = "fluxo-item-ativo";
-                    } else {
-                        elFluxo.className = "";
-                    }
-                }
+            const badge = document.getElementById("status-atual");
+
+            badge.textContent = `[ ${status} ]`;
+
+            badge.className = `status-badge ${classe}`;
+
+            const lista = [
+                "Recebido",
+                "Preparando",
+                "Pronto",
+                "Entregue"
+            ];
+
+            lista.forEach(item => {
+
+                const el = document.getElementById("fluxo-" + item);
+
+                if (!el) return;
+
+                el.classList.remove("fluxo-item-ativo");
+
+                if (item === status)
+                    el.classList.add("fluxo-item-ativo");
+
             });
+
         }
 
-        // Monitora as outras abas: no momento exato em que o carrinho envia dados, esta tela atualiza os campos
-        window.addEventListener('storage', function(e) {
-            if (e.key === 'pedidos') {
+        preencherDadosDoPedido();
+
+        window.addEventListener("storage", function(e){
+
+            if(e.key === "pedidos"){
                 preencherDadosDoPedido();
             }
+
         });
+
+    </script>
+
+</body>
 
