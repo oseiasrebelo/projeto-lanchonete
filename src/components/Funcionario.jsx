@@ -1,7 +1,7 @@
-import './Funcionarios.css'
+import './Funcionario.css'
 import { useRef } from "react";
 
-function Funcionarios() {
+function Funcionario() {
   const carouselRef = useRef(null);
 
   function mover(direcao) {
@@ -14,7 +14,7 @@ function Funcionarios() {
   }
 
   return (
-    <section className="funcionarios">
+    <section className="Funcionario">
 
       <h2>Nossos Funcionários</h2>
 
@@ -74,4 +74,4 @@ function Funcionarios() {
   );
 }
 
-export default Funcionarios;
+export default Funcionario;

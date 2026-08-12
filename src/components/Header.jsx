@@ -1,14 +1,23 @@
-import './header.css'
+import './Header.css'
+import { Link} from "react-router-dom";
 
 function Header({titulo,subtitulo}){
     return (
 
-        <>
-        <div className="titulo">
+<>
+        <Header>
         <h1>{titulo}</h1>
         <h2>{subtitulo}</h2>
-        </div>
-        </>
+        <p> Carrinho ({quantidade})</p>
+        </Header>
+        <nav className='menu'>
+            <Link to ="/home">Home</Link>
+            <Link to ="/carrinho">Carrinho</Link>
+            <Link to ="/pedido">Pedidos</Link>
+            <Link to ="/">Login</Link>
+        </nav>
+
+</>
         
     )
 }

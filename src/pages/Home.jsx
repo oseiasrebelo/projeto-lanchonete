@@ -7,7 +7,7 @@ import Contador from "../components/Contador";
 
 function Home (){
 
-return {
+return (
     <>
      <Header titulo="Lanchonete do Senai"
               subtitulo="O melhor da regiao"/>
@@ -17,7 +17,7 @@ return {
       <Funcionarios/>
       <Footer/>
     </>
-}    
+)    
 }
 
 export default Home
