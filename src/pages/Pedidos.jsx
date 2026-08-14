@@ -1,6 +1,10 @@
+import Header from "../components/Header"
+
 function Pedidos (){
     return (
     <>
+  <Header />
+
   <h1>Painel de Controle da Cozinha</h1>
 
 

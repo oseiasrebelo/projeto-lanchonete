@@ -1,7 +1,7 @@
 import Header from "./components/Header";
 import Login from "./pages/Login";
 import CardProd from "./components/CardProd";
-import Funcionarios from "./components/Funcionario";
+import Funcionario from "./components/Funcionario";
 import Footer from "./components/Footer";
 import Contador from "./components/Contador";
 

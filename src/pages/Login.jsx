@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom';
 function Login() {
     const navigate = useNavigate();
 
-    function salvarDado(event) {
+    function entar(event) {
         event.preventDefault();
         navigate('/Home');
     }
@@ -13,7 +13,7 @@ function Login() {
         <div className="Loging-container">
             <h4></h4>
 
-            <form className="login-box" onSubmit={salvarDado}>
+            <form className="login-box" onSubmit={entar}>
                 <h3>Login</h3>
 
                 <input
