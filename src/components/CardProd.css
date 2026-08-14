@@ -1,9 +1,17 @@
-.container {
+.container-produtos {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   gap: 25px;
   padding: 20px;
+}
+
+.lista-produtos {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 25px;
+  width: 100%;
 }
 
 .imagem-produto {
@@ -14,57 +22,49 @@
   display: block;
 }
 
-.card {
+.card-produto {
   width: 300px;
   border: 1px solid #ddd;
   border-radius: 10px;
   padding: 20px;
   text-align: center;
-  box-shadow: 0 4px 10px rgba(0,0,0,.15);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, .15);
+  background-color: white;
 }
 
-.card h2{
-  margin-bottom:10px;
+.card-produto h2 {
+  margin-bottom: 10px;
   color: black;
 }
 
-.card p{
-  min-height:60px;
+.card-produto p {
+  min-height: 60px;
 }
 
-.botoes{
-  display:flex;
-  justify-content:center;
-  gap:15px;
-  margin-top:15px;
+.botoes {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-top: 15px;
 }
 
-button{
-  border:none;
-  padding:10px 20px;
-  border-radius:8px;
-  cursor:pointer;
-  color:rgb(82, 78, 78);
-  font-weight:bold;
-  transition:.2s;
+.botoes button {
+  border: none;
+  padding: 10px 20px;
+  border-radius: 8px;
+  cursor: pointer;
+  color: rgb(82, 78, 78);
+  font-weight: bold;
+  transition: .2s;
 }
 
-.adicionar{
-  background:#28a745;
+.botoes button:active {
+  transform: scale(.95);
 }
 
-.adicionar:hover{
-  background:#218838;
-}
-
-.remover{
-  background:#dc3545;
-}
-
-.remover:hover{
-  background:#bb2d3b;
-}
-
-button:active{
-  transform:scale(.95);
+.resumo {
+  width: 100%;
+  text-align: center;
+  margin-top: 20px;
+  padding: 20px;
 }
