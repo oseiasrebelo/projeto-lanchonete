@@ -1,11 +1,15 @@
 import Header from "../components/Header";
 import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import "./Carrinho.css";
 
 function Carrinho() {
 
+    const navigate = useNavigate();
+
     const [produtos, setProdutos] = useState([]);
     const [total, setTotal] = useState(0);
+    const [compraFinalizada, setCompraFinalizada] = useState(false);
 
 
     useEffect(() => {
@@ -18,20 +22,12 @@ function Carrinho() {
 
 
         if (pedidoSalvo) {
-
-            setProdutos(
-                JSON.parse(pedidoSalvo)
-            );
-
+            setProdutos(JSON.parse(pedidoSalvo));
         }
 
 
         if (totalSalvo) {
-
-            setTotal(
-                Number(totalSalvo)
-            );
-
+            setTotal(Number(totalSalvo));
         }
 
     }, []);
@@ -47,15 +43,49 @@ function Carrinho() {
             "totalPedido"
         );
 
+        localStorage.removeItem(
+            "pedidoEmProducao"
+        );
+
         setProdutos([]);
         setTotal(0);
+        setCompraFinalizada(false);
     }
 
 
+    function finalizarCompra() {
+
+        if (produtos.length === 0) {
+
+            alert(
+                "Seu carrinho está vazio."
+            );
+
+            return;
+        }
+
+        // Marca o pedido como enviado para a cozinha
+        localStorage.setItem(
+            "pedidoEmProducao",
+            "true"
+        );
+
+        // Mostra a mensagem de compra finalizada
+        setCompraFinalizada(true);
+    }
+
+
+    const quantidadeTotal = produtos.reduce(
+        (total, produto) =>
+            total + produto.quantidade,
+        0
+    );
+
+
     return (
-        
 
         <div className="pagina-carrinho">
+
             <Header />
 
             <div className="carrinho-container">
@@ -65,22 +95,65 @@ function Carrinho() {
                 </h1>
 
 
-                {produtos.length === 0 ? (
+                {compraFinalizada ? (
+
+                    /* COMPRA FINALIZADA */
+
+                    <div className="compra-finalizada">
+
+                        <div className="icone-sucesso">
+                            ✓
+                        </div>
+
+                        <h2>
+                            Compra Finalizada!
+                        </h2>
+
+                        <p>
+                            Seu pedido foi enviado
+                            para a cozinha.
+                        </p>
+
+                        <p>
+                            Total da compra:
+                            <strong>
+                                {" "}R${" "}
+                                {total.toFixed(2)}
+                            </strong>
+                        </p>
+
+
+                        <button
+                            className="btn-ver-pedido"
+                            onClick={() =>
+                                navigate("/pedidos")
+                            }
+                        >
+                            Acompanhar Pedido
+                        </button>
+
+                    </div>
+
+                ) : produtos.length === 0 ? (
+
+                    /* CARRINHO VAZIO */
 
                     <div className="carrinho-vazio">
 
                         <h2>
-                            Nenhum pedido finalizado
+                            Carrinho vazio
                         </h2>
 
                         <p>
-                            Adicione produtos e finalize
-                            seu pedido primeiro.
+                            Adicione produtos antes
+                            de finalizar sua compra.
                         </p>
 
                     </div>
 
                 ) : (
+
+                    /* CARRINHO */
 
                     <>
 
@@ -164,16 +237,13 @@ function Carrinho() {
 
 
                                                 <td>
-
                                                     R${" "}
-
                                                     {(
                                                         produto.preco *
                                                         produto.quantidade
                                                     ).toFixed(
                                                         2
                                                     )}
-
                                                 </td>
 
                                             </tr>
@@ -188,7 +258,7 @@ function Carrinho() {
                         </div>
 
 
-                        {/* RESUMO FINAL */}
+                        {/* RESUMO */}
 
                         <div className="resumo-carrinho">
 
@@ -199,15 +269,7 @@ function Carrinho() {
                                 </span>
 
                                 <strong>
-                                    {produtos.reduce(
-                                        (
-                                            total,
-                                            produto
-                                        ) =>
-                                            total +
-                                            produto.quantidade,
-                                        0
-                                    )}
+                                    {quantidadeTotal}
                                 </strong>
 
                             </div>
@@ -216,7 +278,7 @@ function Carrinho() {
                             <div className="total-carrinho">
 
                                 <span>
-                                    Total do Pedido:
+                                    Total da Compra:
                                 </span>
 
                                 <strong>
@@ -227,7 +289,19 @@ function Carrinho() {
                             </div>
 
 
+                            {/* BOTÕES */}
+
                             <div className="acoes-carrinho">
+
+                                <button
+                                    className="btn-finalizar-compra"
+                                    onClick={
+                                        finalizarCompra
+                                    }
+                                >
+                                    Finalizar Compra
+                                </button>
+
 
                                 <button
                                     className="btn-limpar-carrinho"

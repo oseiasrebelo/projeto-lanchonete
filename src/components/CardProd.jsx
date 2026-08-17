@@ -1,7 +1,11 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import "./CardProd.css";
 
 function CardProd() {
+
+    const navigate = useNavigate();
+
     const [produtos, setProdutos] = useState([
         {
             id: 1,
@@ -56,14 +60,13 @@ function CardProd() {
         {
             id: 6,
             nome: "Guaraná",
-            descricao: "Refrigerante.",
+            descricao:
+                "Refrigerante.",
             preco: 8,
             quantidade: 0,
             imagem: "/imagem/guarana.jpg",
         },
     ]);
-
-    const [pedidoFinalizado, setPedidoFinalizado] = useState(false);
 
     function adicionar(id) {
         setProdutos((produtosAtuais) =>
@@ -71,7 +74,8 @@ function CardProd() {
                 produto.id === id
                     ? {
                           ...produto,
-                          quantidade: produto.quantidade + 1,
+                          quantidade:
+                              produto.quantidade + 1,
                       }
                     : produto
             )
@@ -81,10 +85,12 @@ function CardProd() {
     function remover(id) {
         setProdutos((produtosAtuais) =>
             produtosAtuais.map((produto) =>
-                produto.id === id && produto.quantidade > 0
+                produto.id === id &&
+                produto.quantidade > 0
                     ? {
                           ...produto,
-                          quantidade: produto.quantidade - 1,
+                          quantidade:
+                              produto.quantidade - 1,
                       }
                     : produto
             )
@@ -97,7 +103,8 @@ function CardProd() {
 
     const totalPedido = produtos.reduce(
         (total, produto) =>
-            total + produto.preco * produto.quantidade,
+            total +
+            produto.preco * produto.quantidade,
         0
     );
 
@@ -107,9 +114,8 @@ function CardProd() {
         0
     );
 
-
-    // FINALIZAR PEDIDO
-    function finalizarPedido() {
+    // IR PARA O CARRINHO
+    function irParaCarrinho() {
 
         if (produtosPedido.length === 0) {
             alert(
@@ -119,21 +125,21 @@ function CardProd() {
             return;
         }
 
-        // Salva somente os produtos escolhidos
+        // Salva os produtos escolhidos
         localStorage.setItem(
             "pedidoFinalizado",
             JSON.stringify(produtosPedido)
         );
 
-        // Salva o valor total
+        // Salva o total
         localStorage.setItem(
             "totalPedido",
             totalPedido.toString()
         );
 
-        setPedidoFinalizado(true);
+        // Vai para a página Carrinho
+        navigate("/carrinho");
     }
-
 
     function limparPedido() {
         setProdutos((produtosAtuais) =>
@@ -142,21 +148,12 @@ function CardProd() {
                 quantidade: 0,
             }))
         );
-
-        setPedidoFinalizado(false);
     }
-
-
-    function novoPedido() {
-        limparPedido();
-
-        localStorage.removeItem("pedidoFinalizado");
-        localStorage.removeItem("totalPedido");
-    }
-
 
     return (
         <div className="container-produtos">
+
+            {/* LISTA DE PRODUTOS */}
 
             <div className="lista-produtos">
 
@@ -195,7 +192,9 @@ function CardProd() {
 
                             <button
                                 onClick={() =>
-                                    adicionar(produto.id)
+                                    adicionar(
+                                        produto.id
+                                    )
                                 }
                             >
                                 Adicionar
@@ -203,7 +202,9 @@ function CardProd() {
 
                             <button
                                 onClick={() =>
-                                    remover(produto.id)
+                                    remover(
+                                        produto.id
+                                    )
                                 }
                             >
                                 Remover
@@ -218,7 +219,7 @@ function CardProd() {
             </div>
 
 
-            {/* RESUMO */}
+            {/* RESUMO DO PEDIDO */}
 
             <div className="resumo">
 
@@ -253,15 +254,21 @@ function CardProd() {
                                 (produto) => (
 
                                     <tr
-                                        key={produto.id}
+                                        key={
+                                            produto.id
+                                        }
                                     >
 
                                         <td>
-                                            {produto.nome}
+                                            {
+                                                produto.nome
+                                            }
                                         </td>
 
                                         <td>
-                                            {produto.quantidade}
+                                            {
+                                                produto.quantidade
+                                            }
                                         </td>
 
                                         <td>
@@ -293,6 +300,8 @@ function CardProd() {
                 )}
 
 
+                {/* QUANTIDADE */}
+
                 <div className="quantidade-total">
 
                     <strong>
@@ -302,6 +311,8 @@ function CardProd() {
 
                 </div>
 
+
+                {/* TOTAL */}
 
                 <div className="total-final">
 
@@ -313,21 +324,28 @@ function CardProd() {
                 </div>
 
 
+                {/* BOTÕES */}
+
                 <div className="acoes-pedido">
 
                     <button
                         className="btn-finalizar"
-                        onClick={finalizarPedido}
+                        onClick={
+                            irParaCarrinho
+                        }
                         disabled={
                             produtosPedido.length === 0
                         }
                     >
-                        Finalizar Pedido
+                        Ir para Carrinho
                     </button>
+
 
                     <button
                         className="btn-limpar"
-                        onClick={limparPedido}
+                        onClick={
+                            limparPedido
+                        }
                         disabled={
                             produtosPedido.length === 0
                         }
@@ -337,32 +355,6 @@ function CardProd() {
 
                 </div>
 
-
-                {pedidoFinalizado && (
-
-                    <div className="pedido-finalizado">
-
-                        <h2>
-                            Pedido Finalizado!
-                        </h2>
-
-                        <p>
-                            Os produtos foram enviados
-                            para o carrinho.
-                        </p>
-
-                        <p>
-                            Total:
-                            <strong>
-                                {" "}R${" "}
-                                {totalPedido.toFixed(2)}
-                            </strong>
-                        </p>
-
-                    </div>
-
-                )}
-
             </div>
 
         </div>
@@ -370,7 +362,6 @@ function CardProd() {
 }
 
 export default CardProd;
-
 
 
 // import { useState } from "react";
@@ -431,8 +422,7 @@ export default CardProd;
 //         {
 //             id: 6,
 //             nome: "Guaraná",
-//             descricao:
-//                 "Refrigerante.",
+//             descricao: "Refrigerante.",
 //             preco: 8,
 //             quantidade: 0,
 //             imagem: "/imagem/guarana.jpg",
@@ -467,17 +457,6 @@ export default CardProd;
 //         );
 //     }
 
-//     function limparPedido() {
-//         setProdutos((produtosAtuais) =>
-//             produtosAtuais.map((produto) => ({
-//                 ...produto,
-//                 quantidade: 0,
-//             }))
-//         );
-
-//         setPedidoFinalizado(false);
-//     }
-
 //     const produtosPedido = produtos.filter(
 //         (produto) => produto.quantidade > 0
 //     );
@@ -489,31 +468,66 @@ export default CardProd;
 //     );
 
 //     const quantidadeTotal = produtos.reduce(
-//         (total, produto) => total + produto.quantidade,
+//         (total, produto) =>
+//             total + produto.quantidade,
 //         0
 //     );
 
+
+//     // FINALIZAR PEDIDO
 //     function finalizarPedido() {
+
 //         if (produtosPedido.length === 0) {
-//             alert("Adicione pelo menos um produto ao pedido.");
+//             alert(
+//                 "Adicione pelo menos um produto ao pedido."
+//             );
+
 //             return;
 //         }
+
+//         // Salva somente os produtos escolhidos
+//         localStorage.setItem(
+//             "pedidoFinalizado",
+//             JSON.stringify(produtosPedido)
+//         );
+
+//         // Salva o valor total
+//         localStorage.setItem(
+//             "totalPedido",
+//             totalPedido.toString()
+//         );
 
 //         setPedidoFinalizado(true);
 //     }
 
+
+//     function limparPedido() {
+//         setProdutos((produtosAtuais) =>
+//             produtosAtuais.map((produto) => ({
+//                 ...produto,
+//                 quantidade: 0,
+//             }))
+//         );
+
+//         setPedidoFinalizado(false);
+//     }
+
+
 //     function novoPedido() {
 //         limparPedido();
+
+//         localStorage.removeItem("pedidoFinalizado");
+//         localStorage.removeItem("totalPedido");
 //     }
+
 
 //     return (
 //         <div className="container-produtos">
 
-//             {/* LISTA DE PRODUTOS */}
-
 //             <div className="lista-produtos">
 
 //                 {produtos.map((produto) => (
+
 //                     <div
 //                         className="card-produto"
 //                         key={produto.id}
@@ -564,12 +578,13 @@ export default CardProd;
 //                         </div>
 
 //                     </div>
+
 //                 ))}
 
 //             </div>
 
 
-//             {/* RESUMO DO PEDIDO */}
+//             {/* RESUMO */}
 
 //             <div className="resumo">
 
@@ -588,44 +603,54 @@ export default CardProd;
 //                     <table className="tabela-pedido">
 
 //                         <thead>
+
 //                             <tr>
 //                                 <th>Produto</th>
 //                                 <th>Qtd.</th>
 //                                 <th>Valor</th>
 //                                 <th>Subtotal</th>
 //                             </tr>
+
 //                         </thead>
 
 //                         <tbody>
 
-//                             {produtosPedido.map((produto) => (
+//                             {produtosPedido.map(
+//                                 (produto) => (
 
-//                                 <tr key={produto.id}>
+//                                     <tr
+//                                         key={produto.id}
+//                                     >
 
-//                                     <td>
-//                                         {produto.nome}
-//                                     </td>
+//                                         <td>
+//                                             {produto.nome}
+//                                         </td>
 
-//                                     <td>
-//                                         {produto.quantidade}
-//                                     </td>
+//                                         <td>
+//                                             {produto.quantidade}
+//                                         </td>
 
-//                                     <td>
-//                                         R${" "}
-//                                         {produto.preco.toFixed(2)}
-//                                     </td>
+//                                         <td>
+//                                             R${" "}
+//                                             {produto.preco.toFixed(
+//                                                 2
+//                                             )}
+//                                         </td>
 
-//                                     <td>
-//                                         R${" "}
-//                                         {(
-//                                             produto.preco *
-//                                             produto.quantidade
-//                                         ).toFixed(2)}
-//                                     </td>
+//                                         <td>
+//                                             R${" "}
+//                                             {(
+//                                                 produto.preco *
+//                                                 produto.quantidade
+//                                             ).toFixed(
+//                                                 2
+//                                             )}
+//                                         </td>
 
-//                                 </tr>
+//                                     </tr>
 
-//                             ))}
+//                                 )
+//                             )}
 
 //                         </tbody>
 
@@ -633,8 +658,6 @@ export default CardProd;
 
 //                 )}
 
-
-//                 {/* QUANTIDADE TOTAL */}
 
 //                 <div className="quantidade-total">
 
@@ -646,8 +669,6 @@ export default CardProd;
 //                 </div>
 
 
-//                 {/* TOTAL */}
-
 //                 <div className="total-final">
 
 //                     <strong>
@@ -657,8 +678,6 @@ export default CardProd;
 
 //                 </div>
 
-
-//                 {/* BOTÕES DO PEDIDO */}
 
 //                 <div className="acoes-pedido">
 
@@ -685,8 +704,6 @@ export default CardProd;
 //                 </div>
 
 
-//                 {/* PEDIDO FINALIZADO */}
-
 //                 {pedidoFinalizado && (
 
 //                     <div className="pedido-finalizado">
@@ -696,24 +713,17 @@ export default CardProd;
 //                         </h2>
 
 //                         <p>
-//                             Seu pedido foi registrado
-//                             com sucesso.
+//                             Os produtos foram enviados
+//                             para o carrinho.
 //                         </p>
 
 //                         <p>
-//                             Total do pedido:
+//                             Total:
 //                             <strong>
 //                                 {" "}R${" "}
 //                                 {totalPedido.toFixed(2)}
 //                             </strong>
 //                         </p>
-
-//                         <button
-//                             className="btn-novo-pedido"
-//                             onClick={novoPedido}
-//                         >
-//                             Fazer Novo Pedido
-//                         </button>
 
 //                     </div>
 
@@ -726,237 +736,3 @@ export default CardProd;
 // }
 
 // export default CardProd;
-
-
-// // import { useState } from "react";
-// // import "./CardProd.css";
-
-// // function CardProd() {
-
-// //     const [produtos, setProdutos] = useState([
-// //         {
-// //             nome: "X-Salada",
-// //             descricao: "Pão, hambúrguer, queijo, alface, tomate e maionese.",
-// //             preco: 12,
-// //             quantidade: 0,
-// //             imagem: "/imagem/x-salada.jpg",
-// //         },
-
-// //         {
-// //             nome: "X-Bacon",
-// //             descricao: "Hambúrguer, bacon crocante, queijo e molho especial.",
-// //             preco: 15,
-// //             quantidade: 0,
-// //             imagem: "/imagem/x-bacon.jpg",
-// //         },
-
-// //         {
-// //             nome: "X-Tudo",
-// //             descricao: "Hambúrguer duplo, bacon, ovo, queijo, presunto e salada.",
-// //             preco: 18,
-// //             quantidade: 0,
-// //             imagem: "/imagem/x-tudo.jpg",
-// //         },
-
-// //         {
-// //             nome: "Batata Frita",
-// //             descricao: "Porção de batatas crocantes e salgadas.",
-// //             preco: 12,
-// //             quantidade: 0,
-// //             imagem: "/imagem/batata-frita.jpg",
-// //         },
-
-// //         {
-// //             nome: "Hot Dog",
-// //             descricao: "Pão, salsicha, milho, batata palha e molho.",
-// //             preco: 8,
-// //             quantidade: 0,
-// //             imagem: "/imagem/hot-dog.jpg",
-// //         },
-
-// //         {
-// //             nome: "Guaraná",
-// //             descricao: "Refrigerante",
-// //             preco: 8,
-// //             quantidade: 0,
-// //             imagem: "/imagem/guarana.jpg",
-// //         },
-// //     ]);
-
-
-// //     function adicionar(index) {
-
-// //         const lista = [...produtos];
-
-// //         lista[index].quantidade += 1;
-
-// //         setProdutos(lista);
-// //     }
-
-
-// //     function remover(index) {
-
-// //         const lista = [...produtos];
-
-// //         if (lista[index].quantidade > 0) {
-// //             lista[index].quantidade -= 1;
-// //         }
-
-// //         setProdutos(lista);
-// //     }
-
-
-// //     const totalPedido = produtos.reduce(
-// //         (total, produto) =>
-// //             total + produto.preco * produto.quantidade,
-// //         0
-// //     );
-
-
-// //     // Produtos que foram adicionados ao pedido
-// //     const produtosPedido = produtos.filter(
-// //         (produto) => produto.quantidade > 0
-// //     );
-
-
-// //     return (
-
-// //         <div className="container-produtos">
-
-// //             <div className="lista-produtos">
-
-// //                 {produtos.map((produto, index) => (
-
-// //                     <div className="card-produto" key={index}>
-
-// //                         <img
-// //                             src={produto.imagem}
-// //                             alt={produto.nome}
-// //                             className="imagem-produto"
-// //                         />
-
-// //                         <h2>
-// //                             {produto.nome}
-// //                         </h2>
-
-// //                         <p>
-// //                             {produto.descricao}
-// //                         </p>
-
-// //                         <h4>
-// //                             Preço: R$ {produto.preco.toFixed(2)}
-// //                         </h4>
-
-// //                         <h4>
-// //                             Quantidade: {produto.quantidade}
-// //                         </h4>
-
-// //                         <div className="botoes">
-
-// //                             <button
-// //                                 onClick={() => adicionar(index)}
-// //                             >
-// //                                 Adicionar
-// //                             </button>
-
-// //                             <button
-// //                                 onClick={() => remover(index)}
-// //                             >
-// //                                 Remover
-// //                             </button>
-
-// //                         </div>
-
-// //                     </div>
-
-// //                 ))}
-
-// //             </div>
-
-
-// //             {/* RESUMO DO PEDIDO */}
-
-// //             <div className="resumo">
-
-// //                 <h2>
-// //                     Total do Pedido
-// //                 </h2>
-
-
-// //                 {produtosPedido.length === 0 ? (
-
-// //                     <p className="pedido-vazio">
-// //                         Nenhum produto adicionado.
-// //                     </p>
-
-// //                 ) : (
-
-// //                     <table className="tabela-pedido">
-
-// //                         <thead>
-
-// //                             <tr>
-// //                                 <th>Produto</th>
-// //                                 <th>Qtd.</th>
-// //                                 <th>Valor</th>
-// //                                 <th>Subtotal</th>
-// //                             </tr>
-
-// //                         </thead>
-
-
-// //                         <tbody>
-
-// //                             {produtosPedido.map((produto, index) => (
-
-// //                                 <tr key={index}>
-
-// //                                     <td>
-// //                                         {produto.nome}
-// //                                     </td>
-
-// //                                     <td>
-// //                                         {produto.quantidade}
-// //                                     </td>
-
-// //                                     <td>
-// //                                         R$ {produto.preco.toFixed(2)}
-// //                                     </td>
-
-// //                                     <td>
-// //                                         R${" "}
-// //                                         {(
-// //                                             produto.preco *
-// //                                             produto.quantidade
-// //                                         ).toFixed(2)}
-// //                                     </td>
-
-// //                                 </tr>
-
-// //                             ))}
-
-// //                         </tbody>
-
-// //                     </table>
-
-// //                 )}
-
-
-// //                 <div className="total-final">
-
-// //                     <strong>
-// //                         Total: R$ {totalPedido.toFixed(2)}
-// //                     </strong>
-
-// //                 </div>
-                
-
-// //             </div>
-
-// //         </div>
-
-// //     );
-// // }
-
-
-// // export default CardProd;

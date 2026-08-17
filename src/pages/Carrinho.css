@@ -251,3 +251,54 @@
         width: 100%;
     }
 }
+
+.acoes-carrinho {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 25px;
+}
+
+
+.btn-finalizar-compra {
+    border: none;
+    padding: 14px 25px;
+    border-radius: 8px;
+    cursor: pointer;
+
+    background-color: #28a745;
+    color: white;
+
+    font-size: 16px;
+    font-weight: bold;
+
+    transition: 0.3s;
+}
+
+
+.btn-finalizar-compra:hover {
+    background-color: #218838;
+    transform: scale(1.03);
+}
+
+
+.btn-limpar-carrinho {
+    border: none;
+    padding: 14px 25px;
+    border-radius: 8px;
+    cursor: pointer;
+
+    background-color: #dc3545;
+    color: white;
+
+    font-size: 16px;
+    font-weight: bold;
+
+    transition: 0.3s;
+}
+
+
+.btn-limpar-carrinho:hover {
+    background-color: #c82333;
+    transform: scale(1.03);
+}
