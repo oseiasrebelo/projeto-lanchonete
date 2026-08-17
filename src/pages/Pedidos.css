@@ -1,248 +1,424 @@
+
+
+/* ==============================
+   PAINEL DA COZINHA
+   ============================== */
+
 body {
-    background-color: #111;
-    color: white;
-    font-family: Arial, sans-serif;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
     margin: 0;
-    padding: 20px;
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #f4f4f4;
+    color: #333;
 }
+
+
+/* Título principal */
 
 h1 {
-    color: #f0ad4e;
     text-align: center;
-    font-size: 24px;
-    text-transform: uppercase;
-    margin-bottom: 25px;
+    font-size: 28px;
+    margin: 30px 0;
+    color: #333;
 }
 
 
-/* CARD DO PEDIDO */
+/* ==============================
+   CARD DO PEDIDO
+   ============================== */
+
 .pedido-card {
-    background-color: #1e1e1e;
-    border: 3px solid #333;
-    border-radius: 12px;
-    width: 100%;
-    max-width: 450px;
-    padding: 25px;
-    box-shadow: 0 8px 16px rgba(0,0,0,0.5);
-    box-sizing: border-box;
+    width: 90%;
+    max-width: 800px;
+    margin: 0 auto 30px auto;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 3px 12px rgba(0, 0, 0, 0.12);
+    overflow: hidden;
 }
 
+
+/* ==============================
+   CABEÇALHO DO PEDIDO
+   ============================== */
 
 .pedido-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    border-bottom: 2px dashed #444;
-    padding-bottom: 15px;
-    margin-bottom: 15px;
-}
-
-
-.pedido-numero {
-    font-size: 28px;
-    font-weight: bold;
-    color: #ffcc00;
-    margin: 0;
-}
-
-
-.pedido-meta p {
-    margin: 5px 0;
-    font-size: 16px;
-    color: #bbb;
-}
-
-
-.pedido-meta strong {
+    padding: 20px 25px;
+    background-color: #222;
     color: white;
 }
 
 
-/* ITENS */
+.pedido-numero {
+    margin: 0;
+    font-size: 22px;
+}
+
+
+.pedido-meta {
+    display: flex;
+    gap: 25px;
+}
+
+
+.pedido-meta p {
+    margin: 0;
+    font-size: 14px;
+}
+
+
+.pedido-meta strong {
+    margin-right: 5px;
+}
+
+
+/* ==============================
+   LISTA DE ITENS
+   ============================== */
 
 .itens-lista {
     list-style: none;
-    padding: 0;
-    margin: 20px 0;
-    min-height: 60px;
+    margin: 0;
+    padding: 20px 25px;
 }
 
 
 .itens-lista li {
-    font-size: 22px;
-    font-weight: bold;
-    padding: 10px 0;
-    border-bottom: 1px solid #2a2a2a;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 10px;
+    border-bottom: 1px solid #ddd;
+    font-size: 15px;
+}
+
+
+.itens-lista li:last-child {
+    border-bottom: none;
 }
 
 
 .sem-itens-aviso {
-    color: #666;
+    justify-content: center !important;
+    color: #888;
     font-style: italic;
-    text-align: center;
-    font-size: 16px;
 }
 
 
-/* RODAPÉ */
+/* ==============================
+   RODAPÉ DO PEDIDO
+   ============================== */
 
 .pedido-footer {
-
-    font-size: 11px;
+    padding: 15px 25px;
+    background-color: #f7f7f7;
+    border-top: 1px solid #ddd;
     color: #777;
-    text-align: center;
-    line-height: 1.4;
-    margin: 20px 0;
-    padding: 10px;
-    background-color: #161616;
-    border-radius: 6px;
-
+    font-size: 11px;
+    line-height: 1.5;
 }
 
 
-/* STATUS */
+/* ==============================
+   STATUS
+   ============================== */
 
 .status-container {
-
-    text-align: center;
-    margin-top: 20px;
-    padding: 15px;
-    background-color: #262626;
-    border-radius: 8px;
-
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 25px;
+    background-color: #fafafa;
+    border-top: 1px solid #ddd;
 }
 
 
 .status-titulo {
-
-    font-size: 14px;
-    text-transform: uppercase;
-    color: #aaa;
-    margin-bottom: 5px;
-
+    font-size: 15px;
+    font-weight: bold;
 }
 
 
 .status-badge {
-
     display: inline-block;
-    font-size: 24px;
+    padding: 7px 14px;
+    border-radius: 20px;
+    font-size: 12px;
     font-weight: bold;
-    padding: 8px 20px;
-    border-radius: 6px;
-    text-transform: uppercase;
-
 }
 
 
-/* CORES */
+/* Status aguardando */
 
 .status-aguardando {
-    background:#333;
-    color:#888;
+    background-color: #fff3cd;
+    color: #856404;
 }
+
+
+/* Status recebido */
 
 .status-recebido {
-    background:#007bff;
-    color:white;
+    background-color: #cfe2ff;
+    color: #084298;
 }
+
+
+/* Status preparando */
 
 .status-preparando {
-    background:#fd7e14;
-    color:white;
+    background-color: #ffe5b4;
+    color: #995c00;
 }
+
+
+/* Status pronto */
 
 .status-pronto {
-    background:#28a745;
-    color:white;
-    animation: piscar 1.5s infinite;
+    background-color: #d1e7dd;
+    color: #0f5132;
 }
+
+
+/* Status entregue */
 
 .status-entregue {
-    background:#6c757d;
-    color:#ddd;
+    background-color: #198754;
+    color: white;
 }
 
 
-@keyframes piscar {
-
-    50% {
-        opacity:.5;
-    }
-
-}
-
-
-/* BOTÕES */
+/* ==============================
+   CONTROLE DE STATUS
+   ============================== */
 
 .controle-paineis {
-
-    margin-top:30px;
-    text-align:center;
-    width:100%;
-    max-width:450px;
-
+    width: 90%;
+    max-width: 800px;
+    margin: 0 auto 30px auto;
+    padding: 20px;
+    box-sizing: border-box;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
 }
 
 
+.controle-paineis h3 {
+    margin: 0 0 15px 0;
+    text-align: center;
+    font-size: 18px;
+}
+
+
+/* ==============================
+   BOTÕES DE STATUS
+   ============================== */
+
 .botoes-status {
-
-    display:flex;
-    gap:8px;
-    justify-content:center;
-    flex-wrap:wrap;
-
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    flex-wrap: wrap;
 }
 
 
 .btn-status {
-
-    padding:10px 14px;
-    font-size:14px;
-    font-weight:bold;
-    border:none;
-    border-radius:4px;
-    cursor:pointer;
-    color:white;
-
+    border: none;
+    border-radius: 6px;
+    padding: 10px 18px;
+    color: white;
+    font-size: 13px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.2s;
 }
 
+
+.btn-status:hover {
+    transform: translateY(-2px);
+    opacity: 0.9;
+}
+
+
+.btn-status:active {
+    transform: scale(0.97);
+}
+
+
+/* Recebido */
 
 .btn-rec {
-    background:#007bff;
+    background-color: #0d6efd;
 }
+
+
+/* Preparando */
 
 .btn-prep {
-    background:#fd7e14;
+    background-color: #fd7e14;
 }
+
+
+/* Pronto */
 
 .btn-pronto {
-    background:#28a745;
+    background-color: #198754;
 }
+
+
+/* Entregue */
 
 .btn-ent {
-    background:#6c757d;
+    background-color: #6c757d;
 }
 
 
-/* FLUXOGRAMA */
+/* ==============================
+   FLUXOGRAMA
+   ============================== */
 
 .fluxograma {
-
-    margin-top:30px;
-    text-align:center;
-    color:#555;
-    font-family:monospace;
-
+    width: 90%;
+    max-width: 400px;
+    margin: 30px auto 50px auto;
+    padding: 25px;
+    box-sizing: border-box;
+    background-color: white;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
 }
 
 
-.fluxo-item-ativo {
+.fluxograma p {
+    margin: 0 0 20px 0;
+    font-size: 18px;
+    font-weight: bold;
+}
 
-    color:#ffcc00;
-    font-weight:bold;
+
+/* Etapas do fluxo */
+
+.fluxograma span {
+    display: inline-block;
+    min-width: 130px;
+    padding: 10px 20px;
+    border-radius: 20px;
+    background-color: #e9ecef;
+    color: #555;
+    font-size: 13px;
+    font-weight: bold;
+}
+
+
+/* Cores das etapas */
+
+#fluxo-Recebido {
+    background-color: #cfe2ff;
+    color: #084298;
+}
+
+
+#fluxo-Preparando {
+    background-color: #ffe5b4;
+    color: #995c00;
+}
+
+
+#fluxo-Pronto {
+    background-color: #d1e7dd;
+    color: #0f5132;
+}
+
+
+#fluxo-Entregue {
+    background-color: #198754;
+    color: white;
+}
+
+
+/* ==============================
+   RESPONSIVIDADE
+   ============================== */
+
+@media (max-width: 600px) {
+
+    h1 {
+        font-size: 22px;
+        margin: 20px 0;
+    }
+
+
+    .pedido-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 15px;
+    }
+
+
+    .pedido-numero {
+        font-size: 19px;
+    }
+
+
+    .pedido-meta {
+        width: 100%;
+        justify-content: space-between;
+        gap: 10px;
+    }
+
+
+    .pedido-meta p {
+        font-size: 12px;
+    }
+
+
+    .itens-lista {
+        padding: 15px;
+    }
+
+
+    .itens-lista li {
+        font-size: 13px;
+        padding: 10px 5px;
+    }
+
+
+    .pedido-footer {
+        padding: 12px 15px;
+        font-size: 10px;
+    }
+
+
+    .status-container {
+        padding: 12px 15px;
+    }
+
+
+    .status-badge {
+        font-size: 10px;
+        padding: 6px 10px;
+    }
+
+
+    .controle-paineis {
+        padding: 15px;
+    }
+
+
+    .btn-status {
+        flex: 1;
+        min-width: 120px;
+        padding: 9px 10px;
+        font-size: 12px;
+    }
+
+
+    .fluxograma {
+        padding: 20px 10px;
+    }
 
 }
