@@ -1,4 +1,327 @@
 .container-produtos {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 25px;
+    padding: 20px;
+}
+
+
+/* LISTA DOS PRODUTOS */
+
+.lista-produtos {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 25px;
+    width: 100%;
+}
+
+
+/* IMAGEM */
+
+.imagem-produto {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 12px;
+    display: block;
+}
+
+
+/* CARD DO PRODUTO */
+
+.card-produto {
+    width: 300px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, .15);
+    background-color: white;
+}
+
+
+.card-produto h2 {
+    margin-bottom: 10px;
+    color: black;
+}
+
+
+.card-produto p {
+    min-height: 60px;
+}
+
+
+/* BOTÕES DOS PRODUTOS */
+
+.botoes {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 15px;
+}
+
+
+.botoes button {
+    border: none;
+    padding: 10px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+    color: rgb(82, 78, 78);
+    font-weight: bold;
+    transition: .2s;
+}
+
+
+.botoes button:active {
+    transform: scale(.95);
+}
+
+
+/* ========================= */
+/* RESUMO DO PEDIDO */
+/* ========================= */
+
+.resumo {
+    width: 100%;
+    max-width: 850px;
+    margin: 30px auto 0;
+    padding: 25px;
+    text-align: center;
+    background-color: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, .12);
+    box-sizing: border-box;
+}
+
+
+.resumo h2 {
+    margin-top: 0;
+    margin-bottom: 25px;
+    color: #111;
+}
+
+
+/* ========================= */
+/* TABELA DO PEDIDO */
+/* ========================= */
+
+.tabela-pedido {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 0 auto;
+}
+
+
+.tabela-pedido th {
+    background-color: #f2f2f2;
+    padding: 12px;
+    text-align: center;
+    font-weight: bold;
+    color: #222;
+}
+
+
+.tabela-pedido td {
+    padding: 12px;
+    text-align: center;
+    border-bottom: 1px solid #ddd;
+    color: #333;
+}
+
+
+/* Primeira coluna fica alinhada à esquerda */
+
+.tabela-pedido th:first-child,
+.tabela-pedido td:first-child {
+    text-align: left;
+}
+
+
+/* Efeito nas linhas */
+
+.tabela-pedido tbody tr:hover {
+    background-color: #f8f8f8;
+}
+
+
+/* ========================= */
+/* PEDIDO VAZIO */
+/* ========================= */
+
+.pedido-vazio {
+    padding: 20px;
+    color: #777;
+    font-size: 16px;
+}
+
+
+/* ========================= */
+/* QUANTIDADE TOTAL */
+/* ========================= */
+
+.quantidade-total {
+    margin-top: 20px;
+    font-size: 16px;
+    text-align: right;
+}
+
+
+/* ========================= */
+/* TOTAL */
+/* ========================= */
+
+.total-final {
+    margin-top: 15px;
+    padding: 18px;
+    background-color: #f2f2f2;
+    border-radius: 8px;
+    font-size: 22px;
+    text-align: right;
+}
+
+
+/* ========================= */
+/* BOTÕES DO PEDIDO */
+/* ========================= */
+
+.acoes-pedido {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+
+.btn-finalizar,
+.btn-limpar,
+.btn-novo-pedido {
+    border: none;
+    padding: 12px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+
+/* FINALIZAR */
+
+.btn-finalizar {
+    background-color: #28a745;
+    color: white;
+}
+
+
+.btn-finalizar:hover {
+    background-color: #218838;
+}
+
+
+.btn-finalizar:disabled {
+    background-color: #999;
+    cursor: not-allowed;
+}
+
+
+/* LIMPAR */
+
+.btn-limpar {
+    background-color: #dc3545;
+    color: white;
+}
+
+
+.btn-limpar:hover {
+    background-color: #c82333;
+}
+
+
+.btn-limpar:disabled {
+    background-color: #999;
+    cursor: not-allowed;
+}
+
+
+/* ========================= */
+/* PEDIDO FINALIZADO */
+/* ========================= */
+
+.pedido-finalizado {
+    margin-top: 25px;
+    padding: 20px;
+    background-color: #d4edda;
+    border: 1px solid #28a745;
+    border-radius: 10px;
+    text-align: center;
+    color: #155724;
+}
+
+
+.pedido-finalizado h2 {
+    margin-top: 0;
+}
+
+
+/* NOVO PEDIDO */
+
+.btn-novo-pedido {
+    background-color: #007bff;
+    color: white;
+    margin-top: 10px;
+}
+
+
+.btn-novo-pedido:hover {
+    background-color: #0069d9;
+}
+
+
+/* ========================= */
+/* RESPONSIVIDADE */
+/* ========================= */
+
+@media (max-width: 700px) {
+
+    .resumo {
+        width: 95%;
+        padding: 15px;
+    }
+
+
+    .tabela-pedido {
+        font-size: 14px;
+    }
+
+
+    .tabela-pedido th,
+    .tabela-pedido td {
+        padding: 8px 5px;
+    }
+
+
+    .quantidade-total,
+    .total-final {
+        text-align: center;
+    }
+
+
+    .acoes-pedido {
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+
+
+    .btn-finalizar,
+    .btn-limpar {
+        flex: 1;
+        min-width: 140px;
+    }
+}
+
+
+/* .container-produtos {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -68,3 +391,85 @@
   margin-top: 20px;
   padding: 20px;
 }
+
+.quantidade-total {
+    margin-top: 15px;
+    font-size: 16px;
+}
+
+.total-final {
+    margin-top: 15px;
+    padding: 15px;
+    background-color: #f2f2f2;
+    border-radius: 8px;
+    font-size: 22px;
+}
+
+.acoes-pedido {
+    display: flex;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.btn-finalizar,
+.btn-limpar,
+.btn-novo-pedido {
+    border: none;
+    padding: 12px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.btn-finalizar {
+    background-color: #28a745;
+    color: white;
+}
+
+.btn-finalizar:hover {
+    background-color: #218838;
+}
+
+.btn-finalizar:disabled {
+    background-color: #999;
+    cursor: not-allowed;
+}
+
+.btn-limpar {
+    background-color: #dc3545;
+    color: white;
+}
+
+.btn-limpar:hover {
+    background-color: #c82333;
+}
+
+.btn-limpar:disabled {
+    background-color: #999;
+    cursor: not-allowed;
+}
+
+.pedido-finalizado {
+    margin-top: 25px;
+    padding: 20px;
+    background-color: #d4edda;
+    border: 1px solid #28a745;
+    border-radius: 10px;
+    text-align: center;
+    color: #155724;
+}
+
+.pedido-finalizado h2 {
+    margin-top: 0;
+}
+
+.btn-novo-pedido {
+    background-color: #007bff;
+    color: white;
+    margin-top: 10px;
+}
+
+.btn-novo-pedido:hover {
+    background-color: #0069d9;
+} */

@@ -1,356 +1,372 @@
-
-
-/* ==============================
-   PAINEL DA COZINHA
-   ============================== */
-
-body {
-    margin: 0;
-    font-family: Arial, Helvetica, sans-serif;
-    background-color: #f4f4f4;
-    color: #333;
+.pagina-pedidos {
+    width: 100%;
+    min-height: 100vh;
+    padding: 30px 20px;
+    background-color: #f3f3f3;
+    box-sizing: border-box;
 }
 
-
-/* Título principal */
-
-h1 {
+.pagina-pedidos h1 {
     text-align: center;
-    font-size: 28px;
-    margin: 30px 0;
-    color: #333;
+    margin: 25px 0;
+    color: #222;
 }
 
 
-/* ==============================
-   CARD DO PEDIDO
-   ============================== */
+/* CARD DO PEDIDO */
 
 .pedido-card {
-    width: 90%;
-    max-width: 800px;
-    margin: 0 auto 30px auto;
-    background-color: #fff;
-    border-radius: 10px;
-    box-shadow: 0 3px 12px rgba(0, 0, 0, 0.12);
-    overflow: hidden;
+    width: 100%;
+    max-width: 850px;
+    margin: 0 auto;
+    background-color: white;
+    border-radius: 12px;
+    padding: 25px;
+    box-sizing: border-box;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 }
 
 
-/* ==============================
-   CABEÇALHO DO PEDIDO
-   ============================== */
+/* CABEÇALHO */
 
 .pedido-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 20px 25px;
-    background-color: #222;
-    color: white;
+    border-bottom: 2px solid #eeeeee;
+    padding-bottom: 15px;
 }
-
 
 .pedido-numero {
     margin: 0;
-    font-size: 22px;
+    color: #222;
 }
-
 
 .pedido-meta {
-    display: flex;
-    gap: 25px;
+    text-align: right;
 }
-
 
 .pedido-meta p {
-    margin: 0;
-    font-size: 14px;
+    margin: 5px 0;
 }
-
 
 .pedido-meta strong {
     margin-right: 5px;
 }
 
 
-/* ==============================
-   LISTA DE ITENS
-   ============================== */
+/* ITENS */
+
+.itens-container {
+    margin-top: 20px;
+}
+
+.itens-container h3 {
+    margin-bottom: 10px;
+}
 
 .itens-lista {
     list-style: none;
+    padding: 0;
     margin: 0;
-    padding: 20px 25px;
+}
+
+.item-pedido {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 12px 0;
+    border-bottom: 1px solid #eeeeee;
+}
+
+.item-pedido img {
+    width: 60px;
+    height: 60px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+.item-info {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.item-info strong {
+    font-size: 17px;
+}
+
+.item-info span {
+    color: #666;
+}
+
+.item-subtotal {
+    color: #222;
 }
 
 
-.itens-lista li {
+/* TOTAL */
+
+.pedido-total {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 12px 10px;
-    border-bottom: 1px solid #ddd;
-    font-size: 15px;
+    margin-top: 20px;
+    padding: 15px;
+    background-color: #f2f2f2;
+    border-radius: 8px;
+    font-size: 20px;
+}
+
+.pedido-total strong {
+    color: #111;
 }
 
 
-.itens-lista li:last-child {
-    border-bottom: none;
-}
-
-
-.sem-itens-aviso {
-    justify-content: center !important;
-    color: #888;
-    font-style: italic;
-}
-
-
-/* ==============================
-   RODAPÉ DO PEDIDO
-   ============================== */
-
-.pedido-footer {
-    padding: 15px 25px;
-    background-color: #f7f7f7;
-    border-top: 1px solid #ddd;
-    color: #777;
-    font-size: 11px;
-    line-height: 1.5;
-}
-
-
-/* ==============================
-   STATUS
-   ============================== */
+/* STATUS */
 
 .status-container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 15px 25px;
-    background-color: #fafafa;
-    border-top: 1px solid #ddd;
+    margin-top: 20px;
+    text-align: center;
 }
-
 
 .status-titulo {
-    font-size: 15px;
+    font-size: 16px;
     font-weight: bold;
+    margin-bottom: 10px;
 }
-
 
 .status-badge {
     display: inline-block;
-    padding: 7px 14px;
+    padding: 10px 20px;
     border-radius: 20px;
-    font-size: 12px;
     font-weight: bold;
 }
 
 
-/* Status aguardando */
+/* STATUS RECEBIDO */
 
-.status-aguardando {
+.status-recebido {
     background-color: #fff3cd;
     color: #856404;
 }
 
 
-/* Status recebido */
-
-.status-recebido {
-    background-color: #cfe2ff;
-    color: #084298;
-}
-
-
-/* Status preparando */
+/* STATUS PREPARANDO */
 
 .status-preparando {
-    background-color: #ffe5b4;
-    color: #995c00;
+    background-color: #cce5ff;
+    color: #004085;
 }
 
 
-/* Status pronto */
+/* STATUS PRONTO */
 
 .status-pronto {
-    background-color: #d1e7dd;
-    color: #0f5132;
+    background-color: #d4edda;
+    color: #155724;
 }
 
 
-/* Status entregue */
+/* STATUS ENTREGUE */
 
 .status-entregue {
-    background-color: #198754;
-    color: white;
+    background-color: #e2e3e5;
+    color: #383d41;
 }
 
 
-/* ==============================
-   CONTROLE DE STATUS
-   ============================== */
+/* RODAPÉ */
+
+.pedido-footer {
+    margin-top: 25px;
+    padding-top: 15px;
+    border-top: 1px solid #ddd;
+    text-align: center;
+    color: #777;
+    font-size: 12px;
+    line-height: 1.6;
+}
+
+
+/* CONTROLE */
 
 .controle-paineis {
-    width: 90%;
-    max-width: 800px;
-    margin: 0 auto 30px auto;
+    width: 100%;
+    max-width: 850px;
+    margin: 25px auto 0;
     padding: 20px;
     box-sizing: border-box;
     background-color: white;
-    border-radius: 10px;
-    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
 }
-
 
 .controle-paineis h3 {
-    margin: 0 0 15px 0;
-    text-align: center;
-    font-size: 18px;
+    margin-top: 0;
 }
 
 
-/* ==============================
-   BOTÕES DE STATUS
-   ============================== */
+/* BOTÕES */
 
 .botoes-status {
     display: flex;
     justify-content: center;
-    gap: 10px;
+    gap: 12px;
     flex-wrap: wrap;
 }
 
-
 .btn-status {
     border: none;
-    border-radius: 6px;
-    padding: 10px 18px;
+    padding: 12px 22px;
+    border-radius: 8px;
     color: white;
-    font-size: 13px;
     font-weight: bold;
     cursor: pointer;
     transition: 0.2s;
 }
 
-
 .btn-status:hover {
     transform: translateY(-2px);
-    opacity: 0.9;
 }
-
 
 .btn-status:active {
-    transform: scale(0.97);
+    transform: scale(0.95);
 }
 
 
-/* Recebido */
+/* RECEBIDO */
 
 .btn-rec {
-    background-color: #0d6efd;
+    background-color: #ffc107;
+    color: #222;
+}
+
+.btn-rec:hover {
+    background-color: #e0a800;
 }
 
 
-/* Preparando */
+/* PREPARANDO */
 
 .btn-prep {
-    background-color: #fd7e14;
+    background-color: #007bff;
+}
+
+.btn-prep:hover {
+    background-color: #0069d9;
 }
 
 
-/* Pronto */
+/* PRONTO */
 
 .btn-pronto {
-    background-color: #198754;
+    background-color: #28a745;
+}
+
+.btn-pronto:hover {
+    background-color: #218838;
 }
 
 
-/* Entregue */
+/* ENTREGUE */
 
 .btn-ent {
     background-color: #6c757d;
 }
 
+.btn-ent:hover {
+    background-color: #5a6268;
+}
 
-/* ==============================
-   FLUXOGRAMA
-   ============================== */
+
+/* FLUXOGRAMA */
 
 .fluxograma {
-    width: 90%;
+    width: 100%;
     max-width: 400px;
-    margin: 30px auto 50px auto;
-    padding: 25px;
-    box-sizing: border-box;
+    margin: 30px auto;
+    padding: 20px;
     background-color: white;
-    border-radius: 10px;
+    border-radius: 12px;
     text-align: center;
-    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+    box-sizing: border-box;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
-
 
 .fluxograma p {
-    margin: 0 0 20px 0;
-    font-size: 18px;
     font-weight: bold;
+    margin-top: 0;
+    margin-bottom: 15px;
 }
 
-
-/* Etapas do fluxo */
-
-.fluxograma span {
+.fluxo {
     display: inline-block;
-    min-width: 130px;
-    padding: 10px 20px;
+    padding: 8px 18px;
     border-radius: 20px;
-    background-color: #e9ecef;
-    color: #555;
-    font-size: 13px;
+    background-color: #eeeeee;
+    color: #777;
     font-weight: bold;
 }
 
-
-/* Cores das etapas */
-
-#fluxo-Recebido {
-    background-color: #cfe2ff;
-    color: #084298;
-}
-
-
-#fluxo-Preparando {
-    background-color: #ffe5b4;
-    color: #995c00;
-}
-
-
-#fluxo-Pronto {
-    background-color: #d1e7dd;
-    color: #0f5132;
-}
-
-
-#fluxo-Entregue {
-    background-color: #198754;
+.fluxo.ativo {
+    background-color: #28a745;
     color: white;
 }
 
 
-/* ==============================
-   RESPONSIVIDADE
-   ============================== */
+/* PEDIDO VAZIO */
+
+.sem-pedido {
+    text-align: center;
+    padding: 40px 20px;
+}
+
+.sem-pedido h2 {
+    color: #333;
+}
+
+.sem-pedido p {
+    color: #777;
+}
+
+
+/* LIMPAR PEDIDO */
+
+.area-limpar {
+    text-align: center;
+    margin: 20px 0 40px;
+}
+
+.btn-limpar-pedido {
+    border: none;
+    padding: 12px 25px;
+    border-radius: 8px;
+    background-color: #dc3545;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.btn-limpar-pedido:hover {
+    background-color: #c82333;
+}
+
+
+/* RESPONSIVO */
 
 @media (max-width: 600px) {
 
-    h1 {
-        font-size: 22px;
-        margin: 20px 0;
+    .pagina-pedidos {
+        padding: 20px 10px;
     }
 
+    .pedido-card {
+        padding: 15px;
+    }
 
     .pedido-header {
         flex-direction: column;
@@ -358,67 +374,191 @@ h1 {
         gap: 15px;
     }
 
-
-    .pedido-numero {
-        font-size: 19px;
+    .pedido-meta {
+        text-align: left;
     }
 
-
-    .pedido-meta {
-        width: 100%;
-        justify-content: space-between;
+    .item-pedido {
         gap: 10px;
     }
 
-
-    .pedido-meta p {
-        font-size: 12px;
+    .item-pedido img {
+        width: 50px;
+        height: 50px;
     }
 
-
-    .itens-lista {
-        padding: 15px;
+    .item-info strong {
+        font-size: 14px;
     }
 
-
-    .itens-lista li {
+    .item-subtotal {
         font-size: 13px;
-        padding: 10px 5px;
     }
 
-
-    .pedido-footer {
-        padding: 12px 15px;
-        font-size: 10px;
+    .pedido-total {
+        font-size: 17px;
     }
-
-
-    .status-container {
-        padding: 12px 15px;
-    }
-
-
-    .status-badge {
-        font-size: 10px;
-        padding: 6px 10px;
-    }
-
-
-    .controle-paineis {
-        padding: 15px;
-    }
-
 
     .btn-status {
-        flex: 1;
-        min-width: 120px;
-        padding: 9px 10px;
-        font-size: 12px;
+        width: 100%;
     }
+}
+/* =========================================
+   PAINEL QUANDO NÃO HÁ PEDIDOS
+   ========================================= */
+
+/* =========================================
+   PÁGINA SEM PEDIDOS
+   ========================================= */
+
+/* Fundo geral da página */
+.pagina-pedidos:has(.sem-pedido) {
+    background: linear-gradient(
+        135deg,
+        #e8f5e9,
+        #c8e6c9,
+        #e3f2fd
+    );
+
+    min-height: 100vh;
+}
 
 
-    .fluxograma {
-        padding: 20px 10px;
-    }
+/* Título da página */
+.pagina-pedidos:has(.sem-pedido) h1 {
+    color: #1b5e20;
 
+    text-shadow:
+        1px 1px 2px rgba(0, 0, 0, 0.15);
+
+    padding: 15px;
+}
+
+
+/* Card sem pedido */
+.pedido-card:has(.sem-pedido) {
+    background: linear-gradient(
+        145deg,
+        #ffffff,
+        #e8f5e9
+    );
+
+    border: 3px solid #4caf50;
+
+    box-shadow:
+        0 8px 20px rgba(46, 125, 50, 0.25);
+
+    transition: 0.3s;
+}
+
+
+/* Área interna */
+.pedido-card:has(.sem-pedido) .sem-pedido {
+    padding: 50px 20px;
+
+    color: #2e7d32;
+
+    text-align: center;
+}
+
+
+/* Título "Nenhum pedido recebido" */
+.pedido-card:has(.sem-pedido) .sem-pedido h2 {
+    color: #1b5e20;
+
+    font-size: 28px;
+
+    margin-bottom: 15px;
+}
+
+
+/* Texto */
+.pedido-card:has(.sem-pedido) .sem-pedido p {
+    color: #388e3c;
+
+    font-size: 18px;
+
+    margin-bottom: 10px;
+}
+
+
+/* Ícone visual usando CSS */
+.pedido-card:has(.sem-pedido) .sem-pedido::before {
+    content: "✓";
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    width: 80px;
+    height: 80px;
+
+    margin: 0 auto 20px;
+
+    border-radius: 50%;
+
+    background: #4caf50;
+
+    color: white;
+
+    font-size: 45px;
+
+    font-weight: bold;
+
+    box-shadow:
+        0 5px 12px rgba(46, 125, 50, 0.3);
+}
+
+
+/* =========================================
+   CONTROLE DE STATUS
+   ========================================= */
+
+.pagina-pedidos:has(.sem-pedido) .controle-paineis {
+    background: rgba(255, 255, 255, 0.8);
+
+    border: 2px solid #a5d6a7;
+
+    box-shadow:
+        0 5px 15px rgba(46, 125, 50, 0.15);
+}
+
+
+/* =========================================
+   FLUXOGRAMA
+   ========================================= */
+
+.pagina-pedidos:has(.sem-pedido) .fluxograma {
+    background: rgba(255, 255, 255, 0.8);
+
+    border: 2px solid #a5d6a7;
+
+    box-shadow:
+        0 5px 15px rgba(46, 125, 50, 0.15);
+}
+
+
+/* =========================================
+   CORES DOS STATUS
+   ========================================= */
+
+.pagina-pedidos:has(.sem-pedido) .btn-rec {
+    background-color: #ffc107;
+    color: #212529;
+}
+
+
+.pagina-pedidos:has(.sem-pedido) .btn-prep {
+    background-color: #2196f3;
+}
+
+
+.pagina-pedidos:has(.sem-pedido) .btn-pronto {
+    background-color: #4caf50;
+}
+
+
+.pagina-pedidos:has(.sem-pedido) .btn-ent {
+    background-color: #607d8b;
 }
