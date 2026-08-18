@@ -1,22 +1,26 @@
-.pagina-pedidos {
-    width: 100%;
-    min-height: 100vh;
-    padding: 30px 20px;
+.pagina-pedidos:has(.sem-pedido) {
+    background-image: url("/imagem/plano-fundo.jpg");
+    background-size: 60% auto;
+    background-position: center top;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
     background-color: #f3f3f3;
-    box-sizing: border-box;
+
+    min-height: 100vh;
 }
+
 
 .pagina-pedidos h1 {
     text-align: center;
     margin: 25px 0;
     color: #222;
-}
+} 
 
 
 /* CARD DO PEDIDO */
 
 .pedido-card {
-    width: 100%;
+    width: 50%;
     max-width: 850px;
     margin: 0 auto;
     background-color: white;
@@ -33,7 +37,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    border-bottom: 2px solid #eeeeee;
+    border-bottom: 2px solid #0a0000;
     padding-bottom: 15px;
 }
 
@@ -411,7 +415,7 @@
    PÁGINA SEM PEDIDOS
    ========================================= */
 
-/* Fundo geral da página */
+/* Fundo geral da página 
 .pagina-pedidos:has(.sem-pedido) {
     background: linear-gradient(
         135deg,
@@ -421,12 +425,12 @@
     );
 
     min-height: 100vh;
-}
+}*/
 
 
 /* Título da página */
 .pagina-pedidos:has(.sem-pedido) h1 {
-    color: #1b5e20;
+    color: #272727;
 
     text-shadow:
         1px 1px 2px rgba(0, 0, 0, 0.15);
@@ -437,13 +441,10 @@
 
 /* Card sem pedido */
 .pedido-card:has(.sem-pedido) {
-    background: linear-gradient(
-        145deg,
-        #ffffff,
-        #e8f5e9
-    );
+    background-color: #fff3e0;
 
-    border: 3px solid #4caf50;
+
+    border: 3px solid #46b446;
 
     box-shadow:
         0 8px 20px rgba(46, 125, 50, 0.25);
@@ -456,7 +457,7 @@
 .pedido-card:has(.sem-pedido) .sem-pedido {
     padding: 50px 20px;
 
-    color: #2e7d32;
+    color: #4eaf4e;
 
     text-align: center;
 }
@@ -464,7 +465,7 @@
 
 /* Título "Nenhum pedido recebido" */
 .pedido-card:has(.sem-pedido) .sem-pedido h2 {
-    color: #1b5e20;
+    color: #101110;
 
     font-size: 28px;
 
@@ -555,7 +556,7 @@
 
 
 .pagina-pedidos:has(.sem-pedido) .btn-pronto {
-    background-color: #4caf50;
+    background-color: #55b86e;
 }
 
 
