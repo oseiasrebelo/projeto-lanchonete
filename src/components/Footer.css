@@ -1,4 +1,3 @@
-/* FOOTER PRINCIPAL */
 footer {
     background: linear-gradient(135deg, #111, #222);
     color: white;
@@ -6,18 +5,18 @@ footer {
     padding: 25px 15px;
     margin-top: 40px;
   
-    /* sombra para destacar */
+  
     box-shadow: 0 -5px 15px rgba(0, 0, 0, 0.3);
   }
   
-  /* TEXTO DO FOOTER */
+
   footer p {
     margin: 5px 0;
     font-size: 14px;
     color: #ccc;
   }
   
-  /* LINKS (se tiver no futuro) */
+ 
   footer a {
     color: #e43e3e;
     text-decoration: none;

@@ -10,11 +10,10 @@ function Pedidos() {
         useState("Recebido");
 
 
-    // CARREGAR PEDIDO
+  
     useEffect(() => {
 
-        // O Pedidos.jsx procura SOMENTE
-        // por pedidos que já foram finalizados
+     
         const pedidoCozinhaSalvo =
             localStorage.getItem("pedidoCozinha");
 
@@ -53,7 +52,7 @@ function Pedidos() {
     }, []);
 
 
-    // ALTERAR STATUS
+  
     function alterarStatus(novoStatus) {
 
         setStatus(
@@ -89,7 +88,7 @@ function Pedidos() {
     }
 
 
-    // LIMPAR PEDIDO
+
     function limparPedido() {
 
         localStorage.removeItem(
@@ -112,7 +111,7 @@ function Pedidos() {
     }
 
 
-    // SE NÃO EXISTIR PEDIDO
+ 
     if (!pedido) {
 
         return (
@@ -121,7 +120,7 @@ function Pedidos() {
 
                 <Header />
 
-                {/* MENSAGEM DO ADMIN */}
+              
 
                 <div className="mensagem-admin">
                     <h1>Olá, Admin!</h1>
@@ -168,7 +167,7 @@ function Pedidos() {
 
             <Header />
 
-            {/* MENSAGEM DO ADMIN */}
+     
 
             <div className="mensagem-admin">
                 <h1>Olá, Admin!</h1>
@@ -182,12 +181,12 @@ function Pedidos() {
                 </h1>
 
 
-                {/* CARD DO PEDIDO */}
+             
 
                 <div className="pedido-card">
 
 
-                    {/* CABEÇALHO */}
+                  
 
                     <div className="pedido-header">
 
@@ -233,7 +232,7 @@ function Pedidos() {
                     </div>
 
 
-                    {/* ITENS DO PEDIDO */}
+                
 
                     <div className="itens-container">
 
@@ -309,7 +308,7 @@ function Pedidos() {
                     </div>
 
 
-                    {/* TOTAL */}
+                  
 
                     <div className="pedido-total">
 
@@ -326,7 +325,7 @@ function Pedidos() {
                     </div>
 
 
-                    {/* STATUS */}
+                 
 
                     <div className="status-container">
 
@@ -353,7 +352,7 @@ function Pedidos() {
                     </div>
 
 
-                    {/* RODAPÉ */}
+                 
 
                     <div className="pedido-footer">
 
@@ -372,7 +371,7 @@ function Pedidos() {
                 </div>
 
 
-                {/* CONTROLE DE STATUS */}
+              
 
                 <div className="controle-paineis">
 
@@ -435,7 +434,7 @@ function Pedidos() {
                 </div>
 
 
-                {/* FLUXOGRAMA */}
+              
 
                 <div className="fluxograma">
 
@@ -511,7 +510,7 @@ function Pedidos() {
                 </div>
 
 
-                {/* LIMPAR PEDIDO */}
+              
 
                 <div className="area-limpar">
 

@@ -132,7 +132,6 @@ function CardProd() {
         0
     );
 
-    // IR PARA O CARRINHO
     function irParaCarrinho() {
 
         if (produtosPedido.length === 0) {
@@ -143,19 +142,19 @@ function CardProd() {
             return;
         }
 
-        // Salva os produtos escolhidos
+  
         localStorage.setItem(
             "pedidoFinalizado",
             JSON.stringify(produtosPedido)
         );
 
-        // Salva o total
+       
         localStorage.setItem(
             "totalPedido",
             totalPedido.toString()
         );
 
-        // Vai para a página Carrinho
+      
         navigate("/Carrinho");
     }
 
@@ -171,7 +170,7 @@ function CardProd() {
     return (
         <div className="container-produtos">
 
-            {/* LISTA DE PRODUTOS */}
+       
 
             <div className="lista-produtos">
 
@@ -237,7 +236,7 @@ function CardProd() {
             </div>
 
 
-            {/* RESUMO DO PEDIDO */}
+       
 
             <div className="resumo">
 
@@ -318,7 +317,7 @@ function CardProd() {
                 )}
 
 
-                {/* QUANTIDADE */}
+             
 
                 <div className="quantidade-total">
 
@@ -330,7 +329,7 @@ function CardProd() {
                 </div>
 
 
-                {/* TOTAL */}
+             
 
                 <div className="total-final">
 
@@ -342,7 +341,7 @@ function CardProd() {
                 </div>
 
 
-                {/* BOTÕES */}
+            
 
                 <div className="acoes-pedido">
 

@@ -9,7 +9,7 @@ function Carrinho() {
     const [compraFinalizada, setCompraFinalizada] = useState(false);
 
 
-    // CARREGAR CARRINHO
+
     useEffect(() => {
 
         const pedidoSalvo =
@@ -51,7 +51,7 @@ function Carrinho() {
     }, []);
 
 
-    // LIMPAR CARRINHO
+
     function limparCarrinho() {
 
         localStorage.removeItem(
@@ -68,7 +68,7 @@ function Carrinho() {
     }
 
 
-    // FINALIZAR COMPRA
+   
     function finalizarCompra() {
 
         if (produtos.length === 0) {
@@ -81,8 +81,7 @@ function Carrinho() {
         }
 
 
-        // Cria o pedido somente quando
-        // o usuário clicar em Finalizar Compra
+    
         const novoPedido = {
 
             numero: Math.floor(
@@ -109,27 +108,27 @@ function Carrinho() {
         };
 
 
-        // Envia o pedido para o painel da cozinha
+      
         localStorage.setItem(
             "pedidoCozinha",
             JSON.stringify(novoPedido)
         );
 
 
-        // Marca que existe um pedido em produção
+      
         localStorage.setItem(
             "pedidoEmProducao",
             "true"
         );
 
 
-        // Mostra a confirmação no Carrinho
+     
         setCompraFinalizada(true);
 
     }
 
 
-    // QUANTIDADE TOTAL
+
     const quantidadeTotal =
         produtos.reduce(
             (total, produto) =>
@@ -154,7 +153,7 @@ function Carrinho() {
 
                 {compraFinalizada ? (
 
-                    /* PEDIDO FINALIZADO */
+                  
 
                     <div className="compra-finalizada">
 
@@ -190,7 +189,7 @@ function Carrinho() {
 
                 ) : produtos.length === 0 ? (
 
-                    /* CARRINHO VAZIO */
+               
 
                     <div className="carrinho-vazio">
 
@@ -208,7 +207,7 @@ function Carrinho() {
 
                 ) : (
 
-                    /* CARRINHO */
+                
 
                     <>
 
@@ -314,7 +313,7 @@ function Carrinho() {
                         </div>
 
 
-                        {/* RESUMO */}
+                      
 
                         <div className="resumo-carrinho">
 
@@ -347,7 +346,7 @@ function Carrinho() {
                             </div>
 
 
-                            {/* BOTÕES */}
+                          
 
                             <div className="acoes-carrinho">
 

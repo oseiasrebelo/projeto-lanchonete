@@ -16,7 +16,6 @@
 
 
 
-/* CONTAINER PRINCIPAL */
 
 .carrinho-container {
     width: 100%;
@@ -38,7 +37,7 @@
 }
 
 
-/* TABELA */
+
 
 .tabela-container {
     width: 100%;
@@ -69,7 +68,7 @@
 }
 
 
-/* PRODUTO + IMAGEM */
+
 
 .produto-carrinho {
     display: flex;
@@ -79,7 +78,7 @@
 }
 
 
-/* IMAGEM PEQUENA */
+
 
 .produto-carrinho img {
     width: 45px;
@@ -96,7 +95,7 @@
 }
 
 
-/* CONTROLE DE QUANTIDADE */
+
 
 .controle-quantidade {
     display: flex;
@@ -131,7 +130,7 @@
 }
 
 
-/* CARRINHO VAZIO */
+
 
 .carrinho-vazio {
     text-align: center;
@@ -145,7 +144,7 @@
 }
 
 
-/* RESUMO */
+
 
 .resumo-carrinho {
     margin-top: 25px;
@@ -154,7 +153,7 @@
 }
 
 
-/* QUANTIDADE */
+
 
 .quantidade-carrinho {
     display: flex;
@@ -165,7 +164,7 @@
 }
 
 
-/* TOTAL */
+
 
 .total-carrinho {
     display: flex;
@@ -183,7 +182,7 @@
 }
 
 
-/* BOTÕES */
+
 
 .acoes-carrinho {
     display: flex;
@@ -209,7 +208,7 @@
 }
 
 
-/* RESPONSIVIDADE */
+
 
 @media (max-width: 600px) {
 

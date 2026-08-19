@@ -17,7 +17,7 @@
 } 
 
 
-/* CARD DO PEDIDO */
+
 
 .pedido-card {
     width: 50%;
@@ -31,7 +31,7 @@
 }
 
 
-/* CABEÇALHO */
+
 
 .pedido-header {
     display: flex;
@@ -59,7 +59,7 @@
 }
 
 
-/* ITENS */
+
 
 .itens-container {
     margin-top: 20px;
@@ -110,7 +110,7 @@
 }
 
 
-/* TOTAL */
+
 
 .pedido-total {
     display: flex;
@@ -128,7 +128,7 @@
 }
 
 
-/* STATUS */
+
 
 .status-container {
     margin-top: 20px;
@@ -149,7 +149,7 @@
 }
 
 
-/* STATUS RECEBIDO */
+
 
 .status-recebido {
     background-color: #fff3cd;
@@ -157,7 +157,7 @@
 }
 
 
-/* STATUS PREPARANDO */
+
 
 .status-preparando {
     background-color: #cce5ff;
@@ -165,7 +165,7 @@
 }
 
 
-/* STATUS PRONTO */
+
 
 .status-pronto {
     background-color: #d4edda;
@@ -173,7 +173,7 @@
 }
 
 
-/* STATUS ENTREGUE */
+
 
 .status-entregue {
     background-color: #e2e3e5;
@@ -181,7 +181,6 @@
 }
 
 
-/* RODAPÉ */
 
 .pedido-footer {
     margin-top: 25px;
@@ -194,7 +193,7 @@
 }
 
 
-/* CONTROLE */
+
 
 .controle-paineis {
     width: 100%;
@@ -213,7 +212,7 @@
 }
 
 
-/* BOTÕES */
+
 
 .botoes-status {
     display: flex;
@@ -241,7 +240,7 @@
 }
 
 
-/* RECEBIDO */
+
 
 .btn-rec {
     background-color: #ffc107;
@@ -253,7 +252,7 @@
 }
 
 
-/* PREPARANDO */
+
 
 .btn-prep {
     background-color: #007bff;
@@ -264,7 +263,7 @@
 }
 
 
-/* PRONTO */
+
 
 .btn-pronto {
     background-color: #28a745;
@@ -275,7 +274,7 @@
 }
 
 
-/* ENTREGUE */
+
 
 .btn-ent {
     background-color: #6c757d;
@@ -286,7 +285,7 @@
 }
 
 
-/* FLUXOGRAMA */
+
 
 .fluxograma {
     width: 100%;
@@ -321,7 +320,7 @@
 }
 
 
-/* PEDIDO VAZIO */
+
 
 .sem-pedido {
     text-align: center;
@@ -337,7 +336,7 @@
 }
 
 
-/* LIMPAR PEDIDO */
+
 
 .area-limpar {
     text-align: center;
@@ -360,7 +359,7 @@
 }
 
 
-/* RESPONSIVO */
+
 
 @media (max-width: 600px) {
 
@@ -407,28 +406,7 @@
         width: 100%;
     }
 }
-/* =========================================
-   PAINEL QUANDO NÃO HÁ PEDIDOS
-   ========================================= */
 
-/* =========================================
-   PÁGINA SEM PEDIDOS
-   ========================================= */
-
-/* Fundo geral da página 
-.pagina-pedidos:has(.sem-pedido) {
-    background: linear-gradient(
-        135deg,
-        #e8f5e9,
-        #c8e6c9,
-        #e3f2fd
-    );
-
-    min-height: 100vh;
-}*/
-
-
-/* Título da página */
 .pagina-pedidos:has(.sem-pedido) h1 {
     color: #272727;
 
@@ -439,7 +417,7 @@
 }
 
 
-/* Card sem pedido */
+
 .pedido-card:has(.sem-pedido) {
     background-color: #fff3e0;
 
@@ -453,7 +431,7 @@
 }
 
 
-/* Área interna */
+
 .pedido-card:has(.sem-pedido) .sem-pedido {
     padding: 50px 20px;
 
@@ -463,7 +441,7 @@
 }
 
 
-/* Título "Nenhum pedido recebido" */
+
 .pedido-card:has(.sem-pedido) .sem-pedido h2 {
     color: #101110;
 
@@ -473,7 +451,7 @@
 }
 
 
-/* Texto */
+
 .pedido-card:has(.sem-pedido) .sem-pedido p {
     color: #388e3c;
 
@@ -483,7 +461,7 @@
 }
 
 
-/* Ícone visual usando CSS */
+
 .pedido-card:has(.sem-pedido) .sem-pedido::before {
     content: "✓";
 
@@ -512,9 +490,7 @@
 }
 
 
-/* =========================================
-   CONTROLE DE STATUS
-   ========================================= */
+
 
 .pagina-pedidos:has(.sem-pedido) .controle-paineis {
     background: rgba(255, 255, 255, 0.8);
@@ -526,9 +502,7 @@
 }
 
 
-/* =========================================
-   FLUXOGRAMA
-   ========================================= */
+
 
 .pagina-pedidos:has(.sem-pedido) .fluxograma {
     background: rgba(255, 255, 255, 0.8);
@@ -540,9 +514,7 @@
 }
 
 
-/* =========================================
-   CORES DOS STATUS
-   ========================================= */
+
 
 .pagina-pedidos:has(.sem-pedido) .btn-rec {
     background-color: #ffc107;

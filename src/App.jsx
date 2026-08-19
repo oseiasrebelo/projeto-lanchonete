@@ -12,31 +12,31 @@ function App() {
         <>
             <Routes>
 
-                {/* LOGIN */}
+              
                 <Route
                     path="/"
                     element={<Login />}
                 />
 
-                {/* HOME */}
+             
                 <Route
                     path="/Home"
                     element={<Home />}
                 />
 
-                {/* CLIENTE */}
+              
                 <Route
                     path="/CardProd"
                     element={<CardProd />}
                 />
 
-                {/* CARRINHO */}
+            
                 <Route
                     path="/Carrinho"
                     element={<Carrinho />}
                 />
 
-                {/* ADMIN */}
+            
                 <Route
                     path="/Pedidos"
                     element={<Pedidos />}
