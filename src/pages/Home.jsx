@@ -10,7 +10,7 @@ function Home() {
         <>
             <Header
                 titulo="Lanchonete do Senai"
-                subtitulo="O melhor da regiao"
+                subtitulo="O melhor da região"
             />
 
             <CardProd />

@@ -535,3 +535,10 @@
 .pagina-pedidos:has(.sem-pedido) .btn-ent {
     background-color: #607d8b;
 }
+.mensagem-admin {
+    text-align: center;
+}
+
+.mensagem-admin h1 {
+    color: #000000 !important;
+}

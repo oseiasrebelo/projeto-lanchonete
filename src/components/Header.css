@@ -1,10 +1,15 @@
-.titulo{
-    background-color: black;
-}
-.titulo h1,h2{
-color:white;
+header {
+    background-color: transparent;
 }
 
-.menu{
+header h1 {
+    color: black !important;
+}
+
+header h2 {
+    color: black !important;
+}
+
+.menu {
     background-color: rgb(247, 224, 167);
 }
