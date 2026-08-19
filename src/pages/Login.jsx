@@ -13,7 +13,7 @@ function Login() {
         event.preventDefault();
 
         if (usuario === 'cliente' && senha === '123') {
-            navigate('/CardProd');
+            navigate('/Home');
         } 
         else if (usuario === 'admin' && senha === '123') {
             navigate('/Pedidos');
