@@ -71,7 +71,7 @@ function CardProd() {
             nome: "Refrigerante Lata",
             descricao:
                 "Fanta Uva 350ml ",
-            preco: 8,
+            preco: 6,
             quantidade: 0,
             imagem: "/imagem/fanta-uva.jpg",
         },
@@ -80,7 +80,7 @@ function CardProd() {
             nome: "Refrigerante Lata",
             descricao:
                 "Fanta Laranja 350ml",
-            preco: 8,
+            preco: 6,
             quantidade: 0,
             imagem: "/imagem/fanta-laranja.jpg",
         },
