@@ -37,6 +37,16 @@ body {
     border-radius: 12px;
     display: block;
 }
+img[src="/imagem/fanta-uva.jpg"] {
+    width: 300px;
+    height: 200px;
+    object-fit: contain;
+}
+img[src="/imagem/fanta-laranja.jpg"] {
+    width: 300px;
+    height: 200px;
+    object-fit: contain;
+}
 
 
 /* CARD DO PRODUTO */

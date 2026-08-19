@@ -61,10 +61,28 @@ function CardProd() {
             id: 6,
             nome: "Guaraná",
             descricao:
-                "Refrigerante.",
+                "Refrigerante 2L",
             preco: 8,
             quantidade: 0,
             imagem: "/imagem/guarana.jpg",
+        },
+        {
+            id: 7,
+            nome: "Refrigerante Lata",
+            descricao:
+                "Fanta Uva 350ml ",
+            preco: 8,
+            quantidade: 0,
+            imagem: "/imagem/fanta-uva.jpg",
+        },
+        {
+            id: 8,
+            nome: "Refrigerante Lata",
+            descricao:
+                "Fanta Laranja 350ml",
+            preco: 8,
+            quantidade: 0,
+            imagem: "/imagem/fanta-laranja.jpg",
         },
     ]);
 
