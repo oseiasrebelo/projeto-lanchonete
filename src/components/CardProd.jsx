@@ -156,7 +156,7 @@ function CardProd() {
         );
 
         // Vai para a página Carrinho
-        navigate("/carrinho");
+        navigate("/Carrinho");
     }
 
     function limparPedido() {

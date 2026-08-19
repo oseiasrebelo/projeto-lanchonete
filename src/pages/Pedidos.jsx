@@ -121,6 +121,12 @@ function Pedidos() {
 
                 <Header />
 
+                {/* MENSAGEM DO ADMIN */}
+
+                <div className="mensagem-admin">
+                    <h1>Olá, Admin!</h1>
+                </div>
+
 
                 <main className="pagina-pedidos">
 
@@ -161,6 +167,12 @@ function Pedidos() {
         <>
 
             <Header />
+
+            {/* MENSAGEM DO ADMIN */}
+
+            <div className="mensagem-admin">
+                <h1>Olá, Admin!</h1>
+            </div>
 
 
             <main className="pagina-pedidos">
@@ -523,3 +535,4 @@ function Pedidos() {
 }
 
 export default Pedidos;
+
